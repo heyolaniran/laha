@@ -1,0 +1,56 @@
+[
+    {
+        "id":1,
+        "titre":"Qu'elle est la distance entre la terre et la lune",
+        "resumer":"L'Homme a une fois mis pied sur la lune,c'est vrai mais j'aimerias savoir de nombre de km qui separer la terre de la lune",
+        "by":"A. Audacieux",
+        "reponse":null
+    },
+    {
+        "id":2,
+        "titre":"Difference entre ce et se",
+        "resumer":"L'Homme a une fois mis pied sur la lune,c'est vrai mais j'aimerias savoir de nombre de km qui separer la terre de la lune",
+        "by":"C. Billy",
+        "reponse":null
+    },
+
+    {
+        "id":3,
+        "titre":"Pythagore",
+        "resumer":"Comment   mesurer  l'hypothenuise d'un triangle rectangle avec phytagore ",
+        "by":"C. Billy",
+        "reponse":{
+            "ans":"La somme du carré des deux autres droites du triangles est égale au carré de l'hypothenuise",
+            "by":"A. Audacieux"
+        }
+    },
+    {
+        "id":4,
+        "titre":"Seisme",
+        "resumer":"A combien de magnitude s'eleve le seisme de Grec 1856 ",
+        "by":"C. Billy",
+        "reponse":null
+    },
+    {
+        "id":5,
+        "titre":"Biologie",
+        "resumer":"Comment   mesurer  l'hypothenuise d'un triangle rectangle avec phytagore ",
+        "by":"C. Billy",
+        "reponse":{
+            "ans":"La somme du carré des deux autres droites du triangles est égale au carré de l'hypothenuise",
+            "by":"A. Audacieux"
+        }
+    },
+    {
+        "id":6,
+        "titre":"Jookj",
+        "resumer":"Comment   mesurer  l'hypothenuise d'un triangle rectangle avec phytagore ",
+        "by":"C. Billy",
+        "reponse":{
+            "ans":"La somme du carré des deux autres droites du triangles est égale au carré de l'hypothenuise",
+            "by":"A. Audacieux"
+        }
+    }
+    
+    
+]
