@@ -1,41 +1,35 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import LayoutStudent from "../../../layouts/Admin/Student/Layout";
+import { useDispatch, useSelector } from "react-redux";
+import { getCour } from "../../../reducers/modules/Cour/list"; 
+import { getSousTitres } from "../../../reducers/modules/SousTitre/list"; 
+import { findById } from "../../../utils";
 
 const Cour = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const [cour, setCour] = useState(null);
-
-  const [allSousTitre, setAllSousTitre] = useState([]);
+  const [reload, setReload] = useState(false)
+  
   useEffect(() => {
-    console.log("id", id);
-    getCour();
-  }, []);
-  const getSousTitres = async (sous_titres) => {
-    axios.get("/db/sous_titre.json").then(({ data }) => {
-      var sous = data.filter((sous_tit) => sous_titres.includes(sous_tit.id));
-      // console.log('sous', sous)
-      setAllSousTitre(sous);
-    });
-  };
+    dispatch(getCour(id));
+    dispatch(getSousTitres());
 
-  const getCour = async () => {
-    axios
-      .get("/db/cours.json")
-      .then(({ data }) => {
-        var fil = data.filter((cour) => cour.id == id);
-        setCour(fil[0]);
-        getSousTitres(fil[0].sous_titres);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  };
+    
+  }, [reload]);
+  
+  const {items,isLoading} = useSelector(state=>state.cours.list);
+  const sousTitreReduce = useSelector(state=>state.sousTitres.list);
+  
+  const allSousTitre = sousTitreReduce.items;
+  const cour = items;
+
+
+
 
   return (
     <LayoutStudent actif="cours">
-      {cour && (
+      {!isLoading ? (<>
         <div className="container-xxl flex-grow-1 container-p-y">
           <h4 className="fw-bold py-3 mb-4">
             <Link to="/cours">
@@ -98,19 +92,19 @@ const Cour = () => {
                             Présentation
                           </Link>
                         </li>
-                        {allSousTitre &&
-                          allSousTitre.map((sous_titre) => {
+                        {cour.sous_titres && cour.sous_titres.map((oo) => {
                             return (
                               <li className="page-item">
-                                <Link to={'/cours/'+cour.id+'/sous_titres/'+sous_titre.id}
+                                <Link to={'/cours/'+cour.id+'/sous_titres/'+oo}
                                   className="page-link "
                                   href="javascript:void(0);"
                                 >
-                                  {sous_titre.titre}
+                                  {findById(sousTitreReduce.items,oo)?.titre}
                                 </Link>
                               </li>
                             );
                           })}
+                       
 
                         <li className="page-item next">
                           <Link to={"/cours/"+cour.id+"/sous_titres/1"} className="page-link" href="javascript:void(0);">
@@ -153,7 +147,7 @@ const Cour = () => {
             </div>
           </div>
         </div>
-      )}
+      </>):(<>Loading ...</>)}
     </LayoutStudent>
   );
 };

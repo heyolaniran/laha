@@ -9,7 +9,7 @@ const Books = () => {
   const [books, setBooks] = useState([]);
   const [initiale, setInitiale] = useState([])
   const getAllBook = async()=>{
-    await axios.get('/db/books.json').then(({data})=>{
+    await axios.get('http://localhost:3000/books').then(({data})=>{
       console.log('data', data)
       setBooks(data)
       setInitiale(data)

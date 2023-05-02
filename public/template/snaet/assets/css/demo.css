@@ -7,6 +7,10 @@
   height: 64px;
   margin-top: 12px;
 }
+#searchInput:focus{
+  border: none;
+  background-color: red;
+}
 
 .app-brand-logo.demo svg {
   width: 22px;

@@ -1,15 +1,43 @@
 import { useEffect } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import ScrollToTop from '../../components/ScroolToTop'
+import { useDispatch, useSelector } from 'react-redux';
+import { checkToken, initAuth } from '../../reducers/modules/Auth/login';
+import { useState } from 'react';
 
-const AdminLayouts = () => {
+const Layouts = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    if (!localStorage.getItem("isAuth")) {
-      navigate("/login")
+  const dispatch = useDispatch()
+  const checkIsAuth =async ()=>{
+    const token = localStorage.getItem('laha_token');
+    if(token){
+      const res = await checkToken(token)
+      if(res !== false){
+        dispatch(initAuth(res)) 
+        if(res.role){
+          if(res.role == "admin"){
+            navigate('/admin/dashboard')
+          }else if(res.role == "student"){
+            navigate('/mon_compte')
+          }else{
+            console.log('user', res.role)
+          }
+        }else{
+          navigate('/login')
+        }
+      }else{
+        navigate('/login')
+      }
+    }else{
+      navigate('/login')
     }
+  }
+  useEffect(() => {
+    checkIsAuth()
   
   }, [""])
+
+  
   return (
     <>
        
@@ -21,27 +49,26 @@ const AdminLayouts = () => {
     
 
 <section id="component-footer">
-                <h5 class="pb-1 mb-4">Footer with Elements</h5>
 
-                <footer class="footer bg-light">
+                <footer className="footer bg-light">
                   <div
-                    class="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 container-p-x py-3"
+                    className="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 container-p-x py-3"
                   >
                     <div>
                      
                     
                     </div>
                     <div>
-                      <div class="form-check form-control-sm footer-link me-3">
+                      <div className="form-check form-control-sm footer-link me-3">
                       <a
                         
                         target="_blank"
-                        class="footer-text fw-bolder"
+                        className="footer-text fw-bolder"
                         >LAHACADEMIA,</a>2023
                       </div>
                       
-                      <Link  to={"/logout"} class="btn btn-sm btn-outline-danger"
-                        ><i class="bx bx-log-out-circle"></i> Deconnexion</Link>
+                      <Link  to={"/logout"} className="btn btn-sm btn-outline-danger"
+                        ><i className="bx bx-log-out-circle"></i> Deconnexion</Link>
                     </div>
                   </div>
                 </footer>
@@ -51,4 +78,4 @@ const AdminLayouts = () => {
   )
 }
 
-export default AdminLayouts
+export default Layouts

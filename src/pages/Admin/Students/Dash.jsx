@@ -1,7 +1,9 @@
 import React from 'react'
 import LayoutStudent from '../../../layouts/Admin/Student/Layout'
+import { useSelector } from 'react-redux'
 
 const DashStudent = () => {
+  const {user} = useSelector(state  => state.auth)
   return (
     <LayoutStudent >
     <div className="content-wrapper">
@@ -13,10 +15,10 @@ const DashStudent = () => {
               <div className="col-sm-7">
                 <div className="card-body">
                   <h5 className="card-title text-primary">
-                    Congratulations {localStorage.getItem("lastname")} 🎉
+                    Congratulations {user.surname} 🎉
                   </h5>
                   <p className="mb-4">
-                   Vous avez termine  <span className="fw-bold">72%</span>{" "}
+                   Vous avez termine  <span className="fw-bold">72%</span>
                     des exercices de la journées.
                   </p>
 
@@ -31,7 +33,7 @@ const DashStudent = () => {
               <div className="col-sm-5 text-center text-sm-left">
                 <div className="card-body pb-0 px-0 px-md-4">
                   <img
-                    src="/template/snaet/assets/img/illustrations/man-with-laptop-light.png"
+                    src="/template/etrain-master/img/books (2).svg"
                     height="140"
                     alt="View Badge User"
                     data-app-dark-img="illustrations/man-with-laptop-dark.png"

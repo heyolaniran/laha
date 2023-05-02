@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 const AuthLayouts = () => {
   const navigate = useNavigate()
+  const {isAuth,user} = useSelector((state)=> state.auth)
+
   useEffect(() => {
-    if(localStorage.getItem('isAuth')){
-      navigate("/mon_compte")
-    }
+    
+      localStorage.clear()
+    
   }, [""])
   
   return (

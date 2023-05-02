@@ -1,7 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import 'react-perfect-scrollbar/dist/css/styles.css'
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import { SET_AUTH_USER } from '../../../reducers/modules/Auth/mutation';
 
 const LayoutStudent = ({children,actif = "tb",}) => {
+  const {user,isAuth} = useSelector(state=> state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  
   return (
     <>
     <div className="layout-wrapper layout-content-navbar">
@@ -21,6 +31,9 @@ const LayoutStudent = ({children,actif = "tb",}) => {
             </Link>
 
             <a
+            onClick={(e)=>{
+              document.querySelector("html").classList.toggle("layout-menu-expanded")
+          }}
               className="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none"
             >
               <i className="bx bx-chevron-left bx-sm align-middle"></i>
@@ -28,8 +41,8 @@ const LayoutStudent = ({children,actif = "tb",}) => {
           </div>
 
           <div className="menu-inner-shadow"></div>
-
-          <ul className="menu-inner py-1 mt-0">
+          <PerfectScrollbar >
+          <ul className="menu-inner py-1 mt-0" style={{paddingBottom:"20px"}}>
             <li className={actif === "tb" ? "menu-item active":'menu-item'}>
               <Link to="/mon_compte" className="menu-link">
                 <i className="menu-icon tf-icons bx bx-home-circle"></i>
@@ -124,6 +137,7 @@ const LayoutStudent = ({children,actif = "tb",}) => {
             </li>
             
           </ul>
+          </PerfectScrollbar>
         </aside>
 
         <div className="layout-page">
@@ -168,7 +182,7 @@ const LayoutStudent = ({children,actif = "tb",}) => {
                     data-show-count="true"
                     aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
                   >
-                    {localStorage.getItem('firstname')+" "+localStorage.getItem("lastname")}
+                    {user.surname +" "+ user.firstname}
                   </a>
                 </li>
 

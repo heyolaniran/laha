@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, RouterProvider,Routes, Outlet } from 'react-router-dom';
-import AdminLayouts from './layouts/Admin/Layouts';
-import AuthLayouts from './layouts/Auth/Layouts';
+import AuthLayouts from './layouts/Admin/Layouts';
+import LogLayouts from './layouts/Auth/Layouts';
 import Logout from './layouts/Auth/Logout';
 import StudentLayouts from './layouts/Students/Layouts';
 import Cours from './layouts/Welcome/Cours';
-import Layouts from './layouts/Welcome/Layouts';
+import WelcomeLayouts from './layouts/Welcome/Layouts';
 import Dash from './pages/Admin/Admin/Dash';
 import Cour from './pages/Admin/Students/Cour';
 import Book from './pages/Admin/Students/Livre';
@@ -46,22 +46,40 @@ import Home from './pages/Welcome/Home';
 import Pricing from './pages/Welcome/Pricing';
 import Navigator from './routes/Navigator';
 import Details from './pages/Admin/Students/Details';
+import store from './store';
+import { Provider, useSelector } from 'react-redux';
+import 'react-tooltip/dist/react-tooltip.css'
+import LayoutAdmin from './layouts/Admin/Admin/Layouts';
+import HomeAdmin from './pages/Admin/Admin/Accueil';
+import CoursAdmin from './pages/Admin/Admin/Cours';
+import CreateCourAdmin from './pages/Admin/Admin/Cour/Create';
+import UpdateCourAdmin from './pages/Admin/Admin/Cour/Update';
+import ShowCourAdmin from './pages/Admin/Admin/Cour/Show';
+import SousTitresAdmin from './pages/Admin/Admin/SousTitres';
+import CreateSousTitreAdmin from './pages/Admin/Admin/SousTitre/Create';
+import UpdateSousTitreAdmin from './pages/Admin/Admin/SousTitre/Update';
+import ShowSousTitreAdmin from './pages/Admin/Admin/SousTitre/Show';
+import BooksAdmin from './pages/Admin/Admin/Books';
+import ShowBookAdmin from './pages/Admin/Admin/Book/Show';
+import UpdateBookAdmin from './pages/Admin/Admin/Book/Update';
+import CreateBookAdmin from './pages/Admin/Admin/Book/Create';
 
 
+// const auth = useSelector((state)=>state.auth)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <>
+    <Provider store={store}>
     <Router >
         <Routes >
-            <Route  element={<Layouts/>}>
+            <Route  element={<WelcomeLayouts/>}>
                 <Route path="/" element={<Home />}  />
                 <Route path="/apropos" element={<About />}  />
                 <Route path="/contact" element={<Contact />}  />
                 <Route path="/abonnements" element={<Pricing />}  />
                 
             </Route>
-            <Route element={<AuthLayouts/>}>
+            <Route element={<LogLayouts/>}>
                 <Route path="/login" element={<Login />}  />
                 <Route path="/logout" element={<Logout />}  />
                 <Route path="/register" element={<Register />}  />
@@ -76,7 +94,7 @@ root.render(
 
                 <Route path="/forums/:type/:id" element={<Forum />}  />
             </Route>  */}
-            <Route element={<AdminLayouts />}>
+            <Route element={<AuthLayouts />}>
                 {/* students routes */}
 
                 <Route path="/questions/:id" element={<Question />}  />
@@ -103,6 +121,29 @@ root.render(
 
                 <Route path='/informations' element={<MonCompte/>}/>
 
+
+                {/* Admin Routes */}
+                <Route path='/admin/dashboard' element={<HomeAdmin />}/>
+
+                <Route path='/admin/cours' element={<CoursAdmin />}/>
+                <Route path='/admin/cours/create' element={<CreateCourAdmin />}/>
+                <Route path='/admin/cours/:id/edit' element={<UpdateCourAdmin />}/>
+                <Route path='/admin/cours/:id' element={<ShowCourAdmin />}/>
+                
+                
+                <Route path='/admin/cours/:id/sous_titres' element={<SousTitresAdmin />}/>
+                <Route path='/admin/cours/:id/sous_titres/create' element={<CreateSousTitreAdmin />}/>
+                <Route path='/admin/sous_titres/:id/edit' element={<UpdateSousTitreAdmin />}/>
+                <Route path='/admin/sous_titres/:id' element={<ShowSousTitreAdmin />}/>
+
+                <Route path='/admin/livres' element={<BooksAdmin />}/>
+                <Route path='/admin/livres/:id' element={<ShowBookAdmin />}/>
+                <Route path='/admin/livres/:id/edit' element={<UpdateBookAdmin />}/>
+                <Route path='/admin/livres/create' element={<CreateBookAdmin />}/>
+
+
+
+
             </Route>
 
 
@@ -113,6 +154,6 @@ root.render(
    
 
        
-</>
+</Provider>
 );
 
