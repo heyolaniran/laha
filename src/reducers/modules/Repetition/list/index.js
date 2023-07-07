@@ -15,7 +15,7 @@ export const getRepetitions = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/repetitions${
+        `${process.env.BACKEND_SOURCE}/repetitions${
           pagination ? "/" : "?pagination=false"
         }`
       )
@@ -39,7 +39,7 @@ export const getRepetition = (id) => {
     dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/repetitions/${id}`)
+      .get(`${process.env.BACKEND_SOURCE}/repetitions/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
@@ -62,7 +62,7 @@ export const getRepetitionFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/repetitions?pagination=false`
+        `${process.env.BACKEND_SOURCE}/repetitions?pagination=false`
       )
       .then(({data}) => {
         var resultFiltre = data;

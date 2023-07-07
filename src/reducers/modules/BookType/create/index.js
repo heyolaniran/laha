@@ -11,7 +11,7 @@ export const createBookType = (item) => {
     dispatch({ type: SET_BOOKTYPES_CREATE_IS_LOADING, payload: true });
 
     return axios
-      .post(`${process.env.REACT_APP_API_URL}/bookTypes`,item)
+      .post(`${process.env.BACKEND_SOURCE}/bookTypes`,item)
       .then(({data}) => {
         dispatch({ type: SET_BOOKTYPES_CREATE_IS_LOADING, payload: false });
         dispatch({ type: SET_BOOKTYPES_CREATE_IS_CREATE, payload: true });

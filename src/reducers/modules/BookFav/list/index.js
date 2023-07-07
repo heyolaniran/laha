@@ -15,7 +15,7 @@ export const getBookFavs = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/bookFavs${
+        `${process.env.BACKEND_SOURCE}/bookFavs${
           pagination ? "/" : "?pagination=false"
         }`
       )
@@ -39,7 +39,7 @@ export const getBookFav = (id) => {
     dispatch({ type: SET_BOOKFAVS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/bookFavs/${id}`)
+      .get(`${process.env.BACKEND_SOURCE}/bookFavs/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_BOOKFAVS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_BOOKFAVS_LIST_IS_LOADING, payload: false });
@@ -62,7 +62,7 @@ export const getBookFavFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/bookFavs?pagination=false`
+        `${process.env.BACKEND_SOURCE}/bookFavs?pagination=false`
       )
       .then(({data}) => {
         var resultFiltre = data;

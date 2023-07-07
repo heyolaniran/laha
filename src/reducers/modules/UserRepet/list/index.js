@@ -15,7 +15,7 @@ export const getUserRepets = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/userRepets${
+        `${process.env.BACKEND_SOURCE}/userRepets${
           pagination ? "/" : "?pagination=false"
         }`
       )
@@ -39,7 +39,7 @@ export const getUserRepet = (id) => {
     dispatch({ type: SET_USER_REPETS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/userRepets/${id}`)
+      .get(`${process.env.BACKEND_SOURCE}/userRepets/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_USER_REPETS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_USER_REPETS_LIST_IS_LOADING, payload: false });
@@ -62,7 +62,7 @@ export const getUserRepetFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/userRepets?pagination=false`
+        `${process.env.BACKEND_SOURCE}/userRepets?pagination=false`
       )
       .then(({data}) => {
         var resultFiltre = data;

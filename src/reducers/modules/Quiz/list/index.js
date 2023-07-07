@@ -15,7 +15,7 @@ export const getQuizs = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/quizs${
+        `${process.env.BACKEND_SOURCE}/qcms${
           pagination ? "/" : "?pagination=false"
         }`
       )
@@ -39,7 +39,7 @@ export const getQuiz = (id) => {
     dispatch({ type: SET_QUIZS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/quizs/${id}`)
+      .get(`${process.env.BACKEND_SOURCE}/quizs/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_QUIZS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_QUIZS_LIST_IS_LOADING, payload: false });
@@ -62,7 +62,7 @@ export const getQuizFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/quizs?pagination=false`
+        `${process.env.BACKEND_SOURCE}/quizs?pagination=false`
       )
       .then(({data}) => {
         var resultFiltre = data;

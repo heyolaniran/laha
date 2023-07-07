@@ -12,7 +12,7 @@ export const deleteClassroom = (id) => {
     dispatch({ type: SET_CLASSROOMS_DELETE_IS_LOADING, payload: true });
 
     return axios
-      .delete(`${process.env.REACT_APP_API_URL}/classrooms/${id}`)
+      .delete(`${process.env.BACKEND_SOURCE}/class/${id}`)
       .then((res) => {
         dispatch({ type: SET_CLASSROOMS_DELETE_IS_LOADING, payload: false });
         dispatch({ type: SET_CLASSROOMS_DELETE_IS_DELETE, payload: true });

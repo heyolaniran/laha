@@ -1,0 +1,6 @@
+Books : 
+il manque les champs 
+-auteur 
+-class
+bookTypeId ( relation bookType)
+-corriger le 

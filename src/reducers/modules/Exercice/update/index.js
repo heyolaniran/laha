@@ -12,7 +12,7 @@ export const updateExercice = (item) => {
     dispatch({ type: SET_EXERCICES_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .put(`${process.env.REACT_APP_API_URL}/exercices/${item.id}`,item)
+      .put(`${process.env.BACKEND_SOURCE}/exercices/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_EXERCICES_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_EXERCICES_UPDATE_IS_UPDATE, payload: true });

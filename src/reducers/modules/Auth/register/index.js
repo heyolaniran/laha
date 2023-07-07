@@ -6,30 +6,18 @@ export const register = (item) => {
     dispatch({ type: SET_AUTH_RESET});
 
     dispatch({ type: SET_AUTH_IS_LOADING, payload: true });
-    dispatch({ type: SET_AUTH_MESSAGE, payload: "Inscription en  cour ..." });
+    dispatch({ type: SET_AUTH_MESSAGE, payload: "Inscription en  cours..." });
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/users`)
+      .get(`${process.env.BACKEND_SOURCE}/user`)
       .then(({data}) => {
-        const userAuth = data.find((user)=> user.email === item.email)
+        const userAuth = data.status
 
-        if(userAuth == undefined || userAuth == {} || userAuth == null || userAuth.length == 0){
-          dispatch({ type: SET_AUTH_MESSAGE, payload: "Patientez quelques secondes,votre inscription est en  cour ..." });
-          dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
-          axios.post(`${process.env.REACT_APP_API_URL}/users`,item)
-          .then(({data})=>{
-            dispatch({ type: SET_AUTH_RESET});
-            dispatch({ type: SET_AUTH_IS_REGISTER,payload:true});
+        if(userAuth){
+         
             dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur LAHACADEMIA,Connectez-vous pour continuer..." });
             dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
-            
-          }).catch((err)=>{
-            dispatch({ type: SET_AUTH_RESET});
-            dispatch({ type: SET_AUTH_MESSAGE, payload: "Une erreur s'est produite,Veuillez ressayer" });
-            dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "warning" });
-          })
-          
 
         }else{
           dispatch({ type: SET_AUTH_RESET});
@@ -46,13 +34,12 @@ export const register = (item) => {
 export const checkCompte = (item) => {
   return (dispatch) => {
     dispatch({ type: SET_AUTH_RESET});
-
     dispatch({ type: SET_AUTH_IS_LOADING, payload: true });
     dispatch({ type: SET_AUTH_MESSAGE, payload: "Inscription en  cour ..." });
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/users`)
+      .get(`${process.env.BACKEND_SOURCE}/user`)
       .then(({data}) => {
         const userAuth = data.find((user)=> user.email === item.email)
 

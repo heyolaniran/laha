@@ -14,7 +14,7 @@ export const getSubjects = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/subjects${
+        `${process.env.BACKEND_SOURCE}/subject${
           pagination ? "/" : "?pagination=false"
         }`
       )
@@ -38,7 +38,7 @@ export const getSubject = (id) => {
     dispatch({ type: SET_SUBJECTS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/subjects/${id}`)
+      .get(`${process.env.BACKEND_SOURCE}/subjects/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_SUBJECTS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_SUBJECTS_LIST_IS_LOADING, payload: false });

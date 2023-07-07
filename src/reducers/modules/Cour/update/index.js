@@ -12,7 +12,7 @@ export const updateCour = (item) => {
     dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .put(`${process.env.REACT_APP_API_URL}/cours/${item.id}`,item)
+      .put(`${process.env.BACKEND_SOURCE}/cours/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_COURS_UPDATE_IS_UPDATE, payload: true });
@@ -32,7 +32,7 @@ export const updateCourPatch = (item) => {
     dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .patch(`${process.env.REACT_APP_API_URL}/cours/${item.id}`,item)
+      .patch(`${process.env.BACKEND_SOURCE}/cours/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_COURS_UPDATE_IS_UPDATE, payload: true });

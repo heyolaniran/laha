@@ -13,7 +13,7 @@ const Book = () => {
   }, [""])
   const getBook = async()=>{
     await axios.get('/db/books.json').then(({data})=>{
-      var result = data.filter((d)=> d.id == id);
+      var result = data.filter((d)=> d.id === id);
 
       if(result.length == 1){
         setBook(result[0]);

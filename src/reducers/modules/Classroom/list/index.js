@@ -15,7 +15,7 @@ export const getClassrooms = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/classrooms${
+        `${process.env.BACKEND_SOURCE}/class${
           pagination ? "/" : "?"+relationClassrooms
         }`
       )
@@ -39,7 +39,7 @@ export const getClassroom = (id) => {
     dispatch({ type: SET_CLASSROOMS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/classrooms/${id}`)
+      .get(`${process.env.BACKEND_SOURCE}/classrooms/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_CLASSROOMS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_CLASSROOMS_LIST_IS_LOADING, payload: false });
@@ -62,7 +62,7 @@ export const getClassroomFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/classrooms?pagination=false`
+        `${process.env.BACKEND_SOURCE}/classrooms?pagination=false`
       )
       .then(({data}) => {
         var resultFiltre = data;

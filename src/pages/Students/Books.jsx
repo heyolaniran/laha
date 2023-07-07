@@ -10,7 +10,7 @@ const Books = () => {
   const [initiale, setInitiale] = useState([])
   const getAllBook = async()=>{
     await axios.get('http://localhost:3000/books').then(({data})=>{
-      console.log('data', data)
+     
       setBooks(data)
       setInitiale(data)
     }).catch((err)=>{

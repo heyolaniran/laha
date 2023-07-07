@@ -12,7 +12,7 @@ export const updateBookType = (item) => {
     dispatch({ type: SET_BOOKTYPES_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .put(`${process.env.REACT_APP_API_URL}/bookTypes/${item.id}`,item)
+      .put(`${process.env.BACKEND_SOURCE}/bookTypes/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_BOOKTYPES_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_BOOKTYPES_UPDATE_IS_UPDATE, payload: true });

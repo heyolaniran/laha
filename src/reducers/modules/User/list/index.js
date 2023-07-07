@@ -14,7 +14,7 @@ export const getUsers = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_API_URL}/users${
+        `${process.env.BACKEND_SOURCE}/user${
           pagination ? "/" : "?pagination=false"
         }`
       )
@@ -38,7 +38,7 @@ export const getUser = (id) => {
     dispatch({ type: SET_USERS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/users/${id}`)
+      .get(`${process.env.BACKEND_SOURCE}/user/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_USERS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_USERS_LIST_IS_LOADING, payload: false });

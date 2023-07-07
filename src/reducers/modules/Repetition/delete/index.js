@@ -13,7 +13,7 @@ export const deleteRepetition = (id) => {
     dispatch({ type: SET_REPETITIONS_DELETE_IS_LOADING, payload: true });
 
     return axios
-      .delete(`${process.env.REACT_APP_API_URL}/repetitions/${id}`)
+      .delete(`${process.env.BACKEND_SOURCE}/repetitions/${id}`)
       .then((res) => {
         dispatch({ type: SET_REPETITIONS_DELETE_IS_LOADING, payload: false });
         dispatch({ type: SET_REPETITIONS_DELETE_IS_DELETE, payload: true });

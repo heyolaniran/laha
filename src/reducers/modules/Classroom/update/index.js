@@ -12,7 +12,7 @@ export const updateClassroom = (item) => {
     dispatch({ type: SET_CLASSROOMS_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .put(`${process.env.REACT_APP_API_URL}/classrooms/${item.id}`,item)
+      .put(`${process.env.BACKEND_SOURCE}/class/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_CLASSROOMS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_CLASSROOMS_UPDATE_IS_UPDATE, payload: true });

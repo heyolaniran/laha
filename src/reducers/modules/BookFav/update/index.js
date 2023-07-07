@@ -12,7 +12,7 @@ export const updateBookFav = (item) => {
     dispatch({ type: SET_BOOKFAVS_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .put(`${process.env.REACT_APP_API_URL}/bookFavs/${item.id}`,item)
+      .put(`${process.env.BACKEND_SOURCE}/bookFavs/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_BOOKFAVS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_BOOKFAVS_UPDATE_IS_UPDATE, payload: true });
