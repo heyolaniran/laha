@@ -12,7 +12,7 @@ export const deleteUser = (id) => {
     dispatch({ type: SET_USERS_DELETE_IS_LOADING, payload: true });
 
     return axios
-      .delete(`${process.env.BACKEND_SOURCE}/users/${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_SOURCE}/users/${id}`)
       .then((res) => {
         dispatch({ type: SET_USERS_DELETE_IS_LOADING, payload: false });
         dispatch({ type: SET_USERS_DELETE_IS_DELETE, payload: true });

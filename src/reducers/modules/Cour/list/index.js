@@ -15,7 +15,7 @@ export const getCours = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/cours${
+        `${process.env.REACT_APP_BACKEND_SOURCE}/cours${
           pagination ? "/" : "?"+relationCours
         }`
       )
@@ -39,7 +39,7 @@ export const getCour = (id) => {
     dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.BACKEND_SOURCE}/cours/${id}?${relationCours}`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/cours/${id}?${relationCours}`)
       .then(({data}) => {
         dispatch({ type: SET_COURS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: false });
@@ -62,7 +62,7 @@ export const getCourFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/cours`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/cours`
       )
       .then(({data}) => {
         var resultFiltre = data;

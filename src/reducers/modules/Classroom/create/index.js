@@ -11,7 +11,7 @@ export const createClassroom = (item) => {
     dispatch({ type: SET_CLASSROOMS_CREATE_IS_LOADING, payload: true });
 
     return axios
-      .post(`${process.env.BACKEND_SOURCE}/class`,item)
+      .post(`${process.env.REACT_APP_BACKEND_SOURCE}/class`,item)
       .then(({data}) => {
         dispatch({ type: SET_CLASSROOMS_CREATE_IS_LOADING, payload: false });
         dispatch({ type: SET_CLASSROOMS_CREATE_IS_CREATE, payload: true });

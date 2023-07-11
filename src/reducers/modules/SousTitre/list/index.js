@@ -16,7 +16,7 @@ export const getSousTitres = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/sous_titres${
+        `${process.env.REACT_APP_BACKEND_SOURCE}/sous_titres${
           pagination ? "/" : "?"+relationSousTitres
         }`
       )
@@ -40,7 +40,7 @@ export const getCourSousTitres = (id) => {
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/sous_titres?courId=${id}&${relationSousTitres}`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/sous_titres?courId=${id}&${relationSousTitres}`
       )
       .then(({data}) => {
         dispatch({ type: SET_SOUSTITRES_LIST_ITEMS, payload: data });
@@ -62,7 +62,7 @@ export const getSousTitre = (id) => {
     dispatch({ type: SET_SOUSTITRES_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.BACKEND_SOURCE}/sous_titres/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/sous_titres/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_SOUSTITRES_LIST_ITEMS, payload: data });
         dispatch({ type: SET_SOUSTITRES_LIST_IS_LOADING, payload: false });
@@ -85,7 +85,7 @@ export const getSousTitreFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/sous_titres?pagination=false`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/sous_titres?pagination=false`
       )
       .then(({data}) => {
         var resultFiltre = data;

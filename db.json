@@ -29,6 +29,12 @@
       "id": 5
     }
   ],
+  "pays" : [
+    {
+      "code" : "+229", 
+      "name" : "Bénin"
+    }
+  ], 
   "books": [
     {
       "id": 2,
@@ -511,7 +517,7 @@
       "role": "student",
       "price": "essaie",
       "id": 3,
-      "token": "217US938777T147027"
+      "token": "981GK752203M735790"
     }
   ],
   "subjects": [

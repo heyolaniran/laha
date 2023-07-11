@@ -12,7 +12,7 @@ export const deleteSousTitre = (id) => {
     dispatch({ type: SET_SOUSTITRES_DELETE_IS_LOADING, payload: true });
 
     return axios
-      .delete(`${process.env.BACKEND_SOURCE}/sous_titres/${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_SOURCE}/sous_titres/${id}`)
       .then((res) => {
         dispatch({ type: SET_SOUSTITRES_DELETE_IS_LOADING, payload: false });
         dispatch({ type: SET_SOUSTITRES_DELETE_IS_DELETE, payload: true });

@@ -12,7 +12,7 @@ export const updateUser = (item) => {
     dispatch({ type: SET_USERS_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .post(`${process.env.BACKEND_SOURCE}/users/${item.id}`,item)
+      .post(`${process.env.REACT_APP_BACKEND_SOURCE}/users/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_USERS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_USERS_UPDATE_IS_UPDATE, payload: true });

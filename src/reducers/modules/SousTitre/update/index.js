@@ -12,7 +12,7 @@ export const updateSousTitre = (item) => {
     dispatch({ type: SET_SOUSTITRES_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .put(`${process.env.BACKEND_SOURCE}/sous_titres/${item.id}`,item)
+      .put(`${process.env.REACT_APP_BACKEND_SOURCE}/sous_titres/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_SOUSTITRES_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_SOUSTITRES_UPDATE_IS_UPDATE, payload: true });

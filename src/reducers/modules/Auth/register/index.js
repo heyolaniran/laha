@@ -10,7 +10,7 @@ export const register = (item) => {
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
 
     return axios
-      .get(`${process.env.BACKEND_SOURCE}/users`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`)
       .then(({data}) => {
         const userAuth = data.status
 
@@ -39,7 +39,7 @@ export const checkCompte = (item) => {
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
 
     return axios
-      .get(`${process.env.BACKEND_SOURCE}/users`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`)
       .then(({data}) => {
         const userAuth = data.find((user)=> user.email === item.email)
 

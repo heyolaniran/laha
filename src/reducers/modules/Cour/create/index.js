@@ -11,7 +11,7 @@ export const createCour = (item) => {
     dispatch({ type: SET_COURS_CREATE_IS_LOADING, payload: true });
 
     return axios
-      .post(`${process.env.BACKEND_SOURCE}/cours`,item)
+      .post(`${process.env.REACT_APP_BACKEND_SOURCE}/cours`,item)
       .then(({data}) => {
         dispatch({ type: SET_COURS_CREATE_IS_LOADING, payload: false });
         dispatch({ type: SET_COURS_CREATE_IS_CREATE, payload: true });

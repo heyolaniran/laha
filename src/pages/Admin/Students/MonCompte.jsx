@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LayoutStudent from '../../../layouts/Admin/Student/Layout'
-
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import axios from 'axios';
 const MonCompte = () => {
+  const [selectedInput, setSelectedInput] = useState('')
+  const {user,isAuth} = useSelector(state=> state.auth);
+  const [item, setItem] =  useState({}) ; 
+  const [countries, setCountries] = useState([]) ;
+  const handleSubmit =  () => { 
+    console.log(item)
+  }
+
+  const handleCountries =  () => { 
+     axios.get(`${process.env.REACT_APP_BACKEND_SOURCE}/pays`).then((json) => { 
+      setCountries(json.data)
+     })
+  }
+
+  useEffect(() => {
+    handleCountries() ; 
+    setItem({...user})
+  }, [])
+  
   return (
 <LayoutStudent actif='profil'>
 <div className="container-xxl flex-grow-1 container-p-y">
@@ -11,7 +32,7 @@ const MonCompte = () => {
                 <div className="col-md-12">
                  
                   <div className="card mb-4">
-                    <h5 className="card-header"> Detaile de profil</h5>
+                    <h5 className="card-header"> Details de profil</h5>
                     <div className="card-body">
                       <div className="d-flex align-items-start align-items-sm-center gap-4">
                         <img
@@ -42,22 +63,26 @@ const MonCompte = () => {
                     </div>
                     <hr className="my-0" />
                     <div className="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <div id="formAccountSettings">
                         <div className="row">
                           <div className="mb-3 col-md-6">
                             <label for="firstName" className="form-label">Nom</label>
                             <input
                               className="form-control"
                               type="text"
-                              id="firstName"
-                              name="firstName"
-                              value={localStorage.getItem('firstname')}
-                              autofocus
+                              name='firstname'
+                              defaultValue={user.surname}
+                              onChange={(e) => { 
+                                setItem({...item , surname : e.target.value}) ; 
+                              }}
+                            
                             />
                           </div>
                           <div className="mb-3 col-md-6">
                             <label for="lastName" className="form-label">Prénoms</label>
-                            <input className="form-control" type="text" name="lastName" id="lastName" value={localStorage.getItem('lastname')} />
+                            <input className="form-control" type="text" name="lastName" id="lastName" defaultValue={user.firstname} onChange={(e) => {
+                              setItem({...item , firstname : e.target.value})
+                            }} />
                           </div>
                           <div className="mb-3 col-md-6">
                             <label for="email" className="form-label">E-mail</label>
@@ -66,20 +91,26 @@ const MonCompte = () => {
                               type="text"
                               id="email"
                               name="email"
-                              value={localStorage.getItem('email')}
+                              defaultValue={user.email}
+                              onChange={(e) => { 
+                                setItem({...item , email : e.target.value}) ; 
+                              }}
                               placeholder="john.doe@example.com"
                             />
                           </div>
-                          <div className="mb-3 col-md-6">
-                            <label for="organization" className="form-label">Pays</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="organization"
-                              readOnly
-                              name="organization"
-                              value={localStorage.getItem('country')}
-                            />
+                          <div class="form-group">
+                            <label for="">Pays </label>
+                            <select class="form-control" name="" id="" defaultValue={selectedInput} onChange={(e) => { 
+                              setItem({...item, country: e.target.value})
+                              setSelectedInput(e.target.value)
+                              }}>
+                              {countries.map((country) => {
+                                return (
+                                   <option defaultValue={country.name} key={country.code}>{country.name}</option>
+                                )
+                              }
+                              )}
+                            </select>
                           </div>
                           <div className="mb-3 col-md-6">
                             <label className="form-label" for="phoneNumber">Numéro de téléphone</label>
@@ -90,21 +121,30 @@ const MonCompte = () => {
                                 id="phoneNumber"
                                 name="phoneNumber"
                                 className="form-control"
-                                value={"60 00 00 00"}
+                                defaultValue={user.tel}
+                                onChange={(e) => { 
+                                  setItem({...item , tel : e.target.value}) ; 
+                                }} 
+
                               />
                             </div>
                           </div>
                           <div className="mb-3 col-md-6">
                             <label for="address" className="form-label">Adresse</label>
-                            <input type="text" className="form-control" id="address" name="address" placeholder="Address" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, placeat! Similique animi doloremque veniam ullam distinctio non quos unde expedita odit ab voluptatem adipisci ipsam, reprehenderit sint? Dolorem, nihil voluptas." />
+                            <input type="text" className="form-control" id="address" name="address" placeholder="Address" 
+                            defaultValue={user.quartier + ", "+user.ville}
+                            onChange={(e) => { 
+                              setItem({...item , address : e.target.value}) ; 
+                            }}
+                            />
                           </div>
                           
                         </div>
                         <div className="mt-2">
-                          <button type="submit" className="btn btn-primary me-2">Enregistrer</button>
+                          <button type="submit" className="btn btn-primary me-2" onClick={handleSubmit}>Enregistrer</button>
                           <button type="reset" className="btn btn-outline-secondary">Annuler</button>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                   <div className="card">
@@ -132,7 +172,7 @@ const MonCompte = () => {
                   </div>
                 </div>
               </div>
-            </div>
+</div>
 </LayoutStudent>
   )
 }

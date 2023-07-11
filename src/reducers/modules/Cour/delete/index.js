@@ -12,7 +12,7 @@ export const deleteCour = (id) => {
     dispatch({ type: SET_COURS_DELETE_IS_LOADING, payload: true });
 
     return axios
-      .delete(`${process.env.BACKEND_SOURCE}/cours/${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_SOURCE}/cours/${id}`)
       .then((res) => {
         dispatch({ type: SET_COURS_DELETE_IS_LOADING, payload: false });
         dispatch({ type: SET_COURS_DELETE_IS_DELETE, payload: true });

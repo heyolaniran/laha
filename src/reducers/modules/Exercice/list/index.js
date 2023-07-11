@@ -15,7 +15,7 @@ export const getExercices = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/exercices`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/exercices`
       )
       .then(({data}) => {
         dispatch({ type: SET_EXERCICES_LIST_ITEMS, payload: data });
@@ -37,7 +37,7 @@ export const getExercice = (id) => {
     dispatch({ type: SET_EXERCICES_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.BACKEND_SOURCE}/exercices/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/exercices/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_EXERCICES_LIST_ITEMS, payload: data });
         dispatch({ type: SET_EXERCICES_LIST_IS_LOADING, payload: false });
@@ -60,7 +60,7 @@ export const getExerciceFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/exercices`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/exercices`
       )
       .then(({data}) => {
         var resultFiltre = data;

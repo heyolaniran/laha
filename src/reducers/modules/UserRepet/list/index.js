@@ -15,7 +15,7 @@ export const getUserRepets = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/repetition-courses/program`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/repetition-courses/program`
       )
       .then(({data}) => {
         dispatch({ type: SET_USER_REPETS_LIST_ITEMS, payload: data });
@@ -37,7 +37,7 @@ export const getUserRepet = (id) => {
     dispatch({ type: SET_USER_REPETS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.BACKEND_SOURCE}/demandes/cours/repetition/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/demandes/cours/repetition/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_USER_REPETS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_USER_REPETS_LIST_IS_LOADING, payload: false });
@@ -60,7 +60,7 @@ export const getUserRepetFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/demandes/cours/repetition/liste`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/demandes/cours/repetition/liste`
       )
       .then(({data}) => {
         var resultFiltre = data;

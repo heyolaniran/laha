@@ -11,7 +11,7 @@ export const login = (item) => {
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
 
     return axios
-      .get(`${process.env.BACKEND_SOURCE}/users`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`)
       .then(({data}) => {
         const userAuth = data.find((user)=> user.email === item.email && user.password== item.password)
 
@@ -26,7 +26,7 @@ export const login = (item) => {
           const letters = "AZERTYUIOPQSDFGHJKLMWXCVBN";
           const token  = Math.floor((Math.random()*(999-189))+189)+letters[Math.floor(Math.random()*22)]+letters[Math.floor(Math.random()*22)]+Math.floor((Math.random()*(999999-100000))+100000)+letters[Math.floor(Math.random()*22)]+Math.floor((Math.random()*(999999-100000))+100000)
           
-          axios.put(`${process.env.BACKEND_SOURCE}/users/${userAuth.id}`,{...userAuth,token}).then(()=>{
+          axios.put(`${process.env.REACT_APP_BACKEND_SOURCE}/users/${userAuth.id}`,{...userAuth,token}).then(()=>{
             localStorage.setItem('laha_token',token)
             dispatch({ type: SET_AUTH_TOKEN, payload: token });
             dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
@@ -68,7 +68,7 @@ export const initAuth = (userAuth) => {
   };
 };
 export const checkRole = (token,profil)=>{
-  return  axios.get(`${process.env.BACKEND_SOURCE}/users`).then(({data})=>{
+  return  axios.get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`).then(({data})=>{
     const userToken = findList(data,"token",token)
     if(userToken !== undefined){
       
@@ -82,7 +82,7 @@ export const checkRole = (token,profil)=>{
 }
 export const checkToken =async (token)=>{
   
-    return  axios.get(`${process.env.BACKEND_SOURCE}/users`).then(({data})=>{
+    return  axios.get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`).then(({data})=>{
       const userToken = findList(data,"token",token)
       if(userToken !== undefined){
         
