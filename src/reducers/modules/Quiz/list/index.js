@@ -62,7 +62,7 @@ export const getQuizFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/quizs?pagination=false`
+        `${process.env.BACKEND_SOURCE}/quizs`
       )
       .then(({data}) => {
         var resultFiltre = data;

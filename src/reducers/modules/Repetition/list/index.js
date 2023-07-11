@@ -15,7 +15,7 @@ export const getRepetitions = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/repetitions${
+        `${process.env.BACKEND_SOURCE}/cours/repetition${
           pagination ? "/" : "?pagination=false"
         }`
       )

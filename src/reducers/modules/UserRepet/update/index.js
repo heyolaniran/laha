@@ -12,7 +12,7 @@ export const updateUserRepet = (item) => {
     dispatch({ type: SET_USER_REPETS_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .put(`${process.env.BACKEND_SOURCE}/userRepets/${item.id}`,item)
+      .put(`${process.env.BACKEND_SOURCE}/demandes/cours/repetition/${item.id}`,item)
       .then(({data}) => {
         dispatch({ type: SET_USER_REPETS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_USER_REPETS_UPDATE_IS_UPDATE, payload: true });

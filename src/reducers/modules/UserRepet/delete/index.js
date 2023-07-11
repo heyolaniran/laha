@@ -13,7 +13,7 @@ export const deleteUserRepet = (id) => {
     dispatch({ type: SET_USER_REPETS_DELETE_IS_LOADING, payload: true });
 
     return axios
-      .delete(`${process.env.BACKEND_SOURCE}/userRepets/${id}`)
+      .delete(`${process.env.BACKEND_SOURCE}/repetition-courses/program/${id}`)
       .then((res) => {
         dispatch({ type: SET_USER_REPETS_DELETE_IS_LOADING, payload: false });
         dispatch({ type: SET_USER_REPETS_DELETE_IS_DELETE, payload: true });

@@ -15,9 +15,7 @@ export const getExercices = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/exercices${
-          pagination ? "/" : "?pagination=false"
-        }`
+        `${process.env.BACKEND_SOURCE}/exercices`
       )
       .then(({data}) => {
         dispatch({ type: SET_EXERCICES_LIST_ITEMS, payload: data });
@@ -62,7 +60,7 @@ export const getExerciceFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/exercices?pagination=false`
+        `${process.env.BACKEND_SOURCE}/exercices`
       )
       .then(({data}) => {
         var resultFiltre = data;

@@ -12,18 +12,18 @@ export const updateUser = (item) => {
     dispatch({ type: SET_USERS_UPDATE_IS_LOADING, payload: true });
 
     return axios
-      .post(`${process.env.BACKEND_SOURCE}/user/${item.id}`,item)
+      .post(`${process.env.BACKEND_SOURCE}/users/${item.id}`,item)
       .then(({data}) => {
-        dispatch({ type: SET_USERS_IS_LOADING, payload: false });
+        dispatch({ type: SET_USERS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_USERS_UPDATE_IS_UPDATE, payload: true });
         dispatch({ type: SET_USERS_UPDATE_ITEM, payload: data });
-        dispatch({ type: SET_USERS_MESSAGE, payload: "User is update" });
+        dispatch({ type: SET_USERS_UPDATE_MESSAGE, payload: "User is update" });
       })
       .catch((err) => {
         dispatch({ type: SET_USERS_UPDATE_IS_UPDATE, payload: false });
         dispatch({ type: SET_USERS_UPDATE_IS_LOADING, payload: false });
         dispatch({ type: SET_USERS_UPDATE_ITEM, payload: {} });
-        dispatch({ type: SET_USERS_MESSAGE, payload: "User not update" });
+        dispatch({ type: SET_USERS_UPDATE_MESSAGE, payload: "User not update" });
       });
   };
 };

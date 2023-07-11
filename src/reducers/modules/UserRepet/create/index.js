@@ -11,7 +11,7 @@ export const createUserRepet = (item) => {
     dispatch({ type: SET_USER_REPETS_CREATE_IS_LOADING, payload: true });
 
     return axios
-      .post(`${process.env.BACKEND_SOURCE}/userRepets`,item)
+      .post(`${process.env.BACKEND_SOURCE}/repetition-courses/program`,item)
       .then(({data}) => {
         dispatch({ type: SET_USER_REPETS_CREATE_IS_LOADING, payload: false });
         dispatch({ type: SET_USER_REPETS_CREATE_IS_CREATE, payload: true });

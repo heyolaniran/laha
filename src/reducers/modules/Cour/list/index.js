@@ -62,7 +62,7 @@ export const getCourFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.BACKEND_SOURCE}/cours?pagination=false`
+        `${process.env.BACKEND_SOURCE}/cours`
       )
       .then(({data}) => {
         var resultFiltre = data;

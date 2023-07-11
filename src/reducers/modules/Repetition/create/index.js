@@ -11,7 +11,7 @@ export const createRepetition = (item) => {
     dispatch({ type: SET_REPETITIONS_CREATE_IS_LOADING, payload: true });
 
     return axios
-      .post(`${process.env.BACKEND_SOURCE}/repetitions`,item)
+      .post(`${process.env.BACKEND_SOURCE}/cours/repetition/create`,item)
       .then(({data}) => {
         dispatch({ type: SET_REPETITIONS_CREATE_IS_LOADING, payload: false });
         dispatch({ type: SET_REPETITIONS_CREATE_IS_CREATE, payload: true });
