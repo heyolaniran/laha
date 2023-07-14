@@ -51,13 +51,13 @@ const Register = () => {
     dispatch({type:SET_AUTH_MESSAGE,payload:""})
 
     dispatch({type:SET_AUTH_REGISTER_STEP,payload:2})
-
-    // dispatch(register(item))
+    console.log(item)
+     //dispatch(register(item))
   };
   const handleSubmit = async(e) => {
     e.preventDefault();
-
-     dispatch(register({...item,role:"student",price:"essaie"}))
+    
+     dispatch(register(item))
      
 
 
@@ -288,18 +288,18 @@ const Register = () => {
                         onChange={e => setItem({...item,niveau:e.target.value})}
                         value={item.niveau}
                         placeholder="Taper pour rechercher">
-                        <option value="CI">CI</option>
-                        <option value="CP">CP</option>
-                        <option value="CE1">CE1</option>
-                        <option value="CM1">CM1</option>
-                        <option value="CM2">CM2</option>
-                        <option value="Sixiéme">6eme</option>
-                        <option value="Cinquieme">5eme</option>
-                        <option value="Quatrieme">4eme</option>
-                        <option value="Troisieme">3eme</option>
-                        <option value="Seconde">2nd</option>
-                        <option value="Premiere">1er</option>
-                        <option value="Terminale">Tle</option>
+                        <option value="1">CI</option>
+                        <option value="2">CP</option>
+                        <option value="3">CE1</option>
+                        <option value="4">CM1</option>
+                        <option value="5">CM2</option>
+                        <option value="6">6eme</option>
+                        <option value="7">5eme</option>
+                        <option value="8">4eme</option>
+                        <option value="9">3eme</option>
+                        <option value="10">2nd</option>
+                        <option value="11">1er</option>
+                        <option value="12">Tle</option>
                       </select>
                     </div>
 
@@ -327,8 +327,10 @@ const Register = () => {
                         id="exampleDatsaList"
                         style={{cursor:"pointer"}}
 
-                        onChange={e => setItem({...item,niveau:e.target.value})}
-                        value={item.niveau}
+                        onChange={e => {
+                          setItem({...item, sexe: e.target.value})
+                        } }
+                        value={item.sexe}
                         placeholder="Taper pour rechercher">
                         <option value="Homme">Homme</option>
                         <option value="Femme">Femme</option>
@@ -342,8 +344,8 @@ const Register = () => {
                       <input
                         className="form-control"
                         type="date"
-                        onChange={e => setItem({...item,birthday:e.target.value})}
-                        value={item.birthday}
+                        onChange={e => setItem({...item,birthdate:e.target.value})}
+                        value={item.birthdate}
                         id="html5-date-input"
                       />
                     </div>
@@ -375,17 +377,17 @@ const Register = () => {
                         className="form-control"
                         list="datalistOptions"
                         id="exampleDataList"
-                        onChange={e => setItem({...item,country:e.target.value})}
+                        onChange={e => setItem({...item,country_id:e.target.value})}
                         value={item.country}
                         style={{cursor:"pointer"}}
                         placeholder="Taper pour rechercher" />
                         <datalist
                        id="datalistOptions">
-                        <option value="Bénin">+229</option>
-                        <option value="Togo">+228</option>
-                        <option value="Cote d'Ivoire">+225</option>
-                        <option value="Burkina Faso">+226</option>
-                        <option value="Sénégal">+223</option>
+                        <option value="229">+229</option>
+                        <option value="228">+228</option>
+                        <option value="225">+225</option>
+                        <option value="226">+226</option>
+                        <option value="223">+223</option>
                       </datalist>
                     </div>
                     
@@ -398,10 +400,10 @@ const Register = () => {
                         type="text"
                         className="form-control"
                         id="tel"
-                        name="email"
-                        onChange={e => setItem({...item,ville:e.target.value})}
-                        value={item.ville}
-                        
+                        name="city"
+                        onChange={e => setItem({...item,city:e.target.value})}
+                        value={item.city}
+
                       />
                     </div>
                     <div className="mb-3">
@@ -412,8 +414,8 @@ const Register = () => {
                       <textarea
                         className="form-control"
                         type="date"
-                        onChange={e => setItem({...item,quartier:e.target.value})}
-                        value={item.quartier}
+                        onChange={e => setItem({...item,address:e.target.value})}
+                        value={item.address}
                         id="html5-date-input"
                       ></textarea>
                     </div>
@@ -429,7 +431,6 @@ const Register = () => {
                 
               )}
 
-              
               
               {isLoading && (
                 <div className="mb-3 offset-5 mt-4">
