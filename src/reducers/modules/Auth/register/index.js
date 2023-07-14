@@ -9,6 +9,12 @@ export const register = (item) => {
     dispatch({ type: SET_AUTH_MESSAGE, payload: "Inscription en  cours..." });
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
 
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+      return axios.post(`${process.env.REACT_APP_BACKEND_SOURCE}/auth/register`, item).then((data) => { 
+        console.log(data) ; 
+      })
+    })
+
     return axios
       .get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`)
       .then(({data}) => {
@@ -38,7 +44,7 @@ export const checkCompte = (item) => {
     dispatch({ type: SET_AUTH_MESSAGE, payload: "Inscription en  cour ..." });
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
 
-    return axios
+   /* return axios
       .get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`)
       .then(({data}) => {
         const userAuth = data.find((user)=> user.email === item.email)
@@ -60,5 +66,6 @@ export const checkCompte = (item) => {
         dispatch({ type: SET_AUTH_RESET});
         dispatch({ type: SET_AUTH_MESSAGE, payload: err.message });
       });
-  };
+  };*/
+}
 };

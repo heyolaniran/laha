@@ -9,64 +9,35 @@ export const login = (item) => {
     dispatch({ type: SET_AUTH_IS_LOADING, payload: true });
     dispatch({ type: SET_AUTH_MESSAGE, payload: "Connexion en  cour ..." });
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
-    axios.post(`${process.env.REACT_APP_BACKEND_SOURCE}/login` , {item}).then((data) => {
-      console.log(data)
-    })
-    return false ;
-    return axios
-      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/login`)
-      .then(({data}) => {
-        const userAuth = data.find((user)=> user.email === item.email && user.password== item.password)
-
-        if(userAuth == undefined || userAuth == {} || userAuth == null || userAuth.length == 0){
-          dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
-          dispatch({ type: SET_AUTH_IS_AUTH, payload: false });
-          dispatch({ type: SET_AUTH_MESSAGE, payload: "Email ou mot de passe incorrect,Réssayez ..." });
-          dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "danger" });
-
-        }else{
-          
-          const letters = "AZERTYUIOPQSDFGHJKLMWXCVBN";
-          const token  = Math.floor((Math.random()*(999-189))+189)+letters[Math.floor(Math.random()*22)]+letters[Math.floor(Math.random()*22)]+Math.floor((Math.random()*(999999-100000))+100000)+letters[Math.floor(Math.random()*22)]+Math.floor((Math.random()*(999999-100000))+100000)
-          
-          axios.put(`${process.env.REACT_APP_BACKEND_SOURCE}/users/${userAuth.id}`,{...userAuth,token}).then(()=>{
-            localStorage.setItem('laha_token',token)
-            dispatch({ type: SET_AUTH_TOKEN, payload: token });
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+      return axios.post(`${process.env.REACT_APP_BACKEND_SOURCE}/auth/login`, item).then((data) => {
+        if(data.token) {
+          localStorage.setItem('laha_token',data.token)
+            dispatch({ type: SET_AUTH_TOKEN, payload: data.token });
             dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
           dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur LAHACADEMIA..." });
           dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
           dispatch({ type: SET_AUTH_IS_AUTH, payload: true });
-          dispatch({ type: SET_AUTH_USER, payload: userAuth });
-          dispatch({ type: SET_AUTH_USER_TYPE, payload: userAuth.role });
-          dispatch({ type: SET_AUTH_PRICE, payload: userAuth.price });
-          }).catch((err)=>{
-            dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
+          
+        } else { 
+          dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
           dispatch({ type: SET_AUTH_IS_AUTH, payload: false });
           dispatch({ type: SET_AUTH_MESSAGE, payload: "Email ou mot de passe incorrect,Réssayez ..." });
           dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "danger" });
-          })
-          
-          
-          
         }
       })
-      .catch((err) => {
-        dispatch({ type: SET_AUTH_RESET});
-        dispatch({ type: SET_AUTH_MESSAGE, payload: err.message });
-      });
-  };
+    })
+  }
 };
-export const initAuth = (userAuth) => {
+export const initAuth = (data) => {
   return (dispatch) => {
 
-      dispatch({ type: SET_AUTH_TOKEN, payload: userAuth.token });
+      dispatch({ type: SET_AUTH_TOKEN, payload: data.token });
       dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
       dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur LAHACADEMIA..." });
       dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
       dispatch({ type: SET_AUTH_IS_AUTH, payload: true });
-      dispatch({ type: SET_AUTH_USER, payload: userAuth });
-      dispatch({ type: SET_AUTH_USER_TYPE, payload: userAuth.role });
-      dispatch({ type: SET_AUTH_PRICE, payload: userAuth.price });
+
          
   };
 };
