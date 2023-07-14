@@ -2,16 +2,19 @@ import axios from "axios";
 import { SET_AUTH_IS_AUTH, SET_AUTH_IS_LOADING, SET_AUTH_MESSAGE, SET_AUTH_MESSAGE_TYPE, SET_AUTH_PRICE, SET_AUTH_RESET, SET_AUTH_TOKEN, SET_AUTH_USER, SET_AUTH_USER_TYPE } from "../mutation";
 import { findList } from "../../../../utils";
 
+
 export const login = (item) => {
   return (dispatch) => {
     dispatch({ type: SET_AUTH_RESET});
-
     dispatch({ type: SET_AUTH_IS_LOADING, payload: true });
     dispatch({ type: SET_AUTH_MESSAGE, payload: "Connexion en  cour ..." });
     dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "primary" });
-
+    axios.post(`${process.env.REACT_APP_BACKEND_SOURCE}/login` , {item}).then((data) => {
+      console.log(data)
+    })
+    return false ;
     return axios
-      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/login`)
       .then(({data}) => {
         const userAuth = data.find((user)=> user.email === item.email && user.password== item.password)
 
