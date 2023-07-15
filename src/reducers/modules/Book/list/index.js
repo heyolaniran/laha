@@ -16,9 +16,7 @@ export const getBooks = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/books${
-          pagination ? "/" : "?"
-        }${relationBooks}`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/books`
       )
       .then(({data}) => {
         dispatch({ type: SET_BOOKS_LIST_ITEMS, payload: data });
@@ -40,7 +38,7 @@ export const getBook = (id) => {
     dispatch({ type: SET_BOOKS_LIST_IS_LOADING, payload: true });
 
     return axios
-      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/books/${id}?${relationBooks}`)
+      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/books/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_BOOKS_LIST_ITEMS, payload: data });
         dispatch({ type: SET_BOOKS_LIST_IS_LOADING, payload: false });
@@ -63,7 +61,7 @@ export const getBookFiltre =(params)=>{
 
     return axios
       .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/books?pagination=false`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/books`
       )
       .then(({data}) => {
         var resultFiltre = data;

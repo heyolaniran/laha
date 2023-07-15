@@ -11,12 +11,9 @@ import {
 export const getSubjects = (pagination = false) => {
   return (dispatch) => {
     dispatch({ type: SET_SUBJECTS_LIST_IS_LOADING, payload: true });
-
     return axios
       .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/subject${
-          pagination ? "/" : "?pagination=false"
-        }`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/subject`
       )
       .then(({data}) => {
         dispatch({ type: SET_SUBJECTS_LIST_ITEMS, payload: data });

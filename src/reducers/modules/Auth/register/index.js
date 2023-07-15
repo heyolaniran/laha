@@ -11,30 +11,23 @@ export const register = (item) => {
 
     return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
       return axios.post(`${process.env.REACT_APP_BACKEND_SOURCE}/auth/register`, item).then((data) => { 
-        console.log(data) ; 
-      })
-    })
-
-    return axios
-      .get(`${process.env.REACT_APP_BACKEND_SOURCE}/users`)
-      .then(({data}) => {
-        const userAuth = data.status
-
-        if(userAuth){
-         
-            dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur LAHACADEMIA,Connectez-vous pour continuer..." });
-            dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
+        if(data.status){
+           dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur LAHACADEMIA,Connectez-vous pour continuer..." });
+           dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
 
         }else{
           dispatch({ type: SET_AUTH_RESET});
           dispatch({ type: SET_AUTH_MESSAGE, payload: "L'inscription avec l'email <b> "+item.email+"</b> n'est pas possible" });
           dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "danger" });
         }
-      })
-      .catch((err) => {
+       
+      }).catch((err) => {
         dispatch({ type: SET_AUTH_RESET});
         dispatch({ type: SET_AUTH_MESSAGE, payload: err.message });
       });
+    })
+
+    
   };
 };
 export const checkCompte = (item) => {

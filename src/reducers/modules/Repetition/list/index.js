@@ -12,33 +12,33 @@ import {
 export const getRepetitions = (pagination = false) => {
   return (dispatch) => {
     dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: true });
-
-    return axios
-      .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/cours/repetition${
-          pagination ? "/" : "?pagination=false"
-        }`
-      )
-      .then(({data}) => {
-        dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: data });
-        dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_REPETITIONS_LIST_META, payload: [] });
-        dispatch({ type: SET_REPETITIONS_LIST_LINKS, payload: [] });
-        dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: "Liste des livres" });
-      })
-      .catch((err) => {
-        dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: [] });
-        dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: err.message });
-      });
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+          return axios
+          .get(
+            `${process.env.REACT_APP_BACKEND_SOURCE}/cours/repetition`
+          )
+          .then(({data}) => {
+            dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: data });
+            dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
+            dispatch({ type: SET_REPETITIONS_LIST_META, payload: [] });
+            dispatch({ type: SET_REPETITIONS_LIST_LINKS, payload: [] });
+            dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: "Liste des livres" });
+          })
+          .catch((err) => {
+            dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
+            dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: [] });
+            dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: err.message });
+          });
+   
+    })
   };
 };
 
 export const getRepetition = (id) => {
   return (dispatch) => {
     dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: true });
-
-    return axios
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+      return axios
       .get(`${process.env.REACT_APP_BACKEND_SOURCE}/repetitions/${id}`)
       .then(({data}) => {
         dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: data });
@@ -53,36 +53,40 @@ export const getRepetition = (id) => {
         dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: [] });
         dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: err.message });
       });
-  };
+
+    })
+    };
 };
 
 export const getRepetitionFiltre =(params)=>{
   return (dispatch) => {
     dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: true });
-
+  return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
     return axios
-      .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/repetitions?pagination=false`
-      )
-      .then(({data}) => {
-        var resultFiltre = data;
-        params.forEach(param => {
-          resultFiltre = resultFiltre.filter((rep)=> rep[param.name] == param.value)
-        });
-        console.log('resultD', resultFiltre)
-        dispatch({ type: SET_REPETITIONS_LIST_SEARCH_ITEMS, payload: resultFiltre });
-        dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_REPETITIONS_LIST_META, payload: [] });
-        dispatch({ type: SET_REPETITIONS_LIST_LINKS, payload: [] });
-        dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: "Liste des livres" });
-
-      })
-      .catch((err) => {
-        dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: [] });
-        dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: err.message });
+    .get(
+      `${process.env.REACT_APP_BACKEND_SOURCE}/repetitions`
+    )
+    .then(({data}) => {
+      var resultFiltre = data;
+      params.forEach(param => {
+        resultFiltre = resultFiltre.filter((rep)=> rep[param.name] == param.value)
       });
-  };
+      console.log('resultD', resultFiltre)
+      dispatch({ type: SET_REPETITIONS_LIST_SEARCH_ITEMS, payload: resultFiltre });
+      dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
+      dispatch({ type: SET_REPETITIONS_LIST_META, payload: [] });
+      dispatch({ type: SET_REPETITIONS_LIST_LINKS, payload: [] });
+      dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: "Liste des livres" });
+
+    })
+    .catch((err) => {
+      dispatch({ type: SET_REPETITIONS_LIST_IS_LOADING, payload: false });
+      dispatch({ type: SET_REPETITIONS_LIST_ITEMS, payload: [] });
+      dispatch({ type: SET_REPETITIONS_LIST_MESSAGE, payload: err.message });
+    });
+
+  })
+   };
 }
 
 export const resetRepetitions = () => {

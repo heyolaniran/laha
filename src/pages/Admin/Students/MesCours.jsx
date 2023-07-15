@@ -13,7 +13,7 @@ const MesCours = () => {
   const [reload, setReload] = useState(false)
   useEffect(() => {
     dispatch(getCours());
-    dispatch(getSubjects());
+    //dispatch(getSubjects());
 
     return ()=>{
       dispatch(resetCours())
@@ -24,7 +24,7 @@ const MesCours = () => {
 
   const allCours = items;
 
-  const subjectReduce = useSelector((state)=>state.subjects.list);
+  //const subjectReduce = useSelector((state)=>state.subjects.list);
 
   const search =(param)=>{
     if(param.length == 0){
@@ -46,9 +46,9 @@ const MesCours = () => {
         <h5 className='text-muted' onClick={(e)=>setShowFiltre(!showFiltre)}>Filtre <i className='bx bx-filter' style={{fontSize:"25px"}}></i></h5>
             {showFiltre && (<div className="row my-3">
      <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{allCours.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
-     {subjectReduce.items && (subjectReduce.items.map((sub)=>{
+     {/*subjectReduce.items && (subjectReduce.items.map((sub)=>{
      return <div className='cursor-pointer' onClick={(e)=>search([{name:"subjectId",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{filterList(allCours,'subjectId',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
-     }))}
+     })) */}
 
      </div>)}
         {!isSearch && ( allCours.length> 0 ? (
@@ -65,7 +65,7 @@ const MesCours = () => {
                   />
                   <div className="card-body">
                     <span className="badge bg-label-primary me-1 mb-4">
-                      {findById(subjectReduce.items,cour.subjectId)?.name}
+                      {/*findById(subjectReduce.items,cour.subjectId)?.name*/}
                     </span>
                     <Link to={"/cours/" + cour.id}>
                       <h5 className="card-title" style={{ color: "#007cff" }}>
@@ -122,7 +122,7 @@ const MesCours = () => {
                   />
                   <div className="card-body">
                     <span className="badge bg-label-primary me-1 mb-4">
-                      {findById(subjectReduce.items,cour.subjectId)?.name}
+                     Sujet 
                     </span>
                     <Link to={"/cours/" + cour.id}>
                       <h5 className="card-title" style={{ color: "#007cff" }}>

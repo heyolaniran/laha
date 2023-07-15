@@ -13,15 +13,15 @@ const Cour = () => {
   
   useEffect(() => {
     dispatch(getCour(id));
-    dispatch(getSousTitres());
+    //dispatch(getSousTitres());
 
     
   }, [reload]);
   
   const {items,isLoading} = useSelector(state=>state.cours.list);
-  const sousTitreReduce = useSelector(state=>state.sousTitres.list);
+ // const sousTitreReduce = useSelector(state=>state.sousTitres.list);
   
-  const allSousTitre = sousTitreReduce.items;
+  //const allSousTitre = sousTitreReduce.items;
   const cour = items;
 
 
@@ -99,7 +99,7 @@ const Cour = () => {
                                   className="page-link "
                                   href="javascript:void(0);"
                                 >
-                                  {findById(sousTitreReduce.items,oo)?.titre}
+                                 Sous titre 
                                 </Link>
                               </li>
                             );
@@ -117,7 +117,7 @@ const Cour = () => {
                 </div>
               </div>
             </div>
-            <div className=" col-12 col-sm-3 d-none d-sm-block mt-5">
+           {/* <div className=" col-12 col-sm-3 d-none d-sm-block mt-5">
               <div className="row">
                 <div className="col-xl-12 card">
                   <h2 className="text-muted my-3 mx-3">Sous Titres</h2>
@@ -144,7 +144,7 @@ const Cour = () => {
                   </div>
                 </div>
               </div>
-            </div>
+                    </div> */}
           </div>
         </div>
       </>):(<>Loading ...</>)}

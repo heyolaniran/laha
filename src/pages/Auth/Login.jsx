@@ -6,8 +6,8 @@ import { SET_AUTH_RESET } from "../../reducers/modules/Auth/mutation";
 
 const Login = ()=>{
   useEffect(() => {
-   dispatch({type:SET_AUTH_RESET})
-  }, [""])
+  // dispatch({type:SET_AUTH_RESET})
+  }, [])
   
   const dispatch =  useDispatch();
     const navigator = useNavigate();
@@ -15,14 +15,13 @@ const Login = ()=>{
     const [password, setPassword] = useState("")
     // const [error, setError] = useState(false)
     const {isLoading,message,messageType,isAuth,user} = useSelector((state)=>state.auth);
-    
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         dispatch(login({email,password}))
     }
     useEffect(()=>{
-      if(isAuth == true){
-
+      if(isAuth === true){
         navigator("/mon_compte")
       }
     },[isAuth])

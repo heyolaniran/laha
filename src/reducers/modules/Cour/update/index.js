@@ -10,21 +10,23 @@ import {
 export const updateCour = (item) => {
   return (dispatch) => {
     dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: true });
-
-    return axios
-      .put(`${process.env.REACT_APP_BACKEND_SOURCE}/cours/${item.id}`,item)
-      .then(({data}) => {
-        dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: false });
-        dispatch({ type: SET_COURS_UPDATE_IS_UPDATE, payload: true });
-        dispatch({ type: SET_COURS_UPDATE_ITEM, payload: data });
-        dispatch({ type: SET_COURS_UPDATE_MESSAGE, payload: "Cour is update" });
-      })
-      .catch((err) => {
-        dispatch({ type: SET_COURS_UPDATE_IS_UPDATE, payload: false });
-        dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: false });
-        dispatch({ type: SET_COURS_UPDATE_ITEM, payload: {} });
-        dispatch({ type: SET_COURS_UPDATE_MESSAGE, payload: "Cour not update" });
-      });
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+          return axios
+          .put(`${process.env.REACT_APP_BACKEND_SOURCE}/cours/${item.id}`,item)
+          .then(({data}) => {
+            dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: false });
+            dispatch({ type: SET_COURS_UPDATE_IS_UPDATE, payload: true });
+            dispatch({ type: SET_COURS_UPDATE_ITEM, payload: data });
+            dispatch({ type: SET_COURS_UPDATE_MESSAGE, payload: "Cour is update" });
+          })
+          .catch((err) => {
+            dispatch({ type: SET_COURS_UPDATE_IS_UPDATE, payload: false });
+            dispatch({ type: SET_COURS_UPDATE_IS_LOADING, payload: false });
+            dispatch({ type: SET_COURS_UPDATE_ITEM, payload: {} });
+            dispatch({ type: SET_COURS_UPDATE_MESSAGE, payload: "Cour not update" });
+          });
+ 
+    })
   };
 };
 export const updateCourPatch = (item) => {

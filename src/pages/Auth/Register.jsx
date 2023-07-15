@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { checkCompte, register } from "../../reducers/modules/Auth/register";
 import { useEffect } from "react";
 import { SET_AUTH_MESSAGE, SET_AUTH_REGISTER_STEP, SET_AUTH_RESET } from "../../reducers/modules/Auth/mutation";
-
+import axios from "axios" ; 
 const Register = () => {
   const [item, setItem] = useState({});
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [pays , setPays] = useState([])
   const [passwordError, setPasswordError] = useState({
     error: false,
     message: "",
@@ -18,6 +19,7 @@ const Register = () => {
   useEffect(() => {
     dispatch({ type: SET_AUTH_RESET });
   }, [""]);
+
 
   const { isLoading, message, messageType, isAuth, user,isRegister,registerStep } = useSelector(
     (state) => state.auth
@@ -67,6 +69,12 @@ const Register = () => {
     
     navigate("/login")
   }
+
+  useEffect(() => {
+     axios.get(`${process.env.REACT_APP_BACKEND_SOURCE}/pays`).then((data) => { 
+       setPays(data.data.data)
+     })
+  }, [])
   return (
     <div className="container-xxl">
       <div className="authentication-wrapper authentication-basic container-p-y">
@@ -383,11 +391,10 @@ const Register = () => {
                         placeholder="Taper pour rechercher" />
                         <datalist
                        id="datalistOptions">
-                        <option value="229">+229</option>
-                        <option value="228">+228</option>
-                        <option value="225">+225</option>
-                        <option value="226">+226</option>
-                        <option value="223">+223</option>
+                        {pays.map((data) => (
+                          <option value={data.id}>{data.name + " " + data.code }</option>
+                        ))}
+                        
                       </datalist>
                     </div>
                     

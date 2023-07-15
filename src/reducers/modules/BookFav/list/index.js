@@ -15,9 +15,7 @@ export const getBookFavs = (pagination = false) => {
 
     return axios
       .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/bookFavs${
-          pagination ? "/" : "?pagination=false"
-        }`
+        `${process.env.REACT_APP_BACKEND_SOURCE}/bookFavs`
       )
       .then(({data}) => {
         dispatch({ type: SET_BOOKFAVS_LIST_ITEMS, payload: data });

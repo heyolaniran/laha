@@ -10,8 +10,9 @@ const Layouts = () => {
   const dispatch = useDispatch()
   const checkIsAuth =async ()=>{
     const token = localStorage.getItem('laha_token');
+  
     if(token){
-      const res = await checkToken(token)
+      /*const res = await checkToken(token)
       if(res !== false){
         dispatch(initAuth(res)) 
         if(res.role){
@@ -27,7 +28,7 @@ const Layouts = () => {
         }
       }else{
         navigate('/login')
-      }
+      }*/
     }else{
       navigate('/login')
     }

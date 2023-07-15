@@ -12,24 +12,28 @@ import {
 export const getExercices = (pagination = false) => {
   return (dispatch) => {
     dispatch({ type: SET_EXERCICES_LIST_IS_LOADING, payload: true });
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+            return axios
+            .get(
+              `${process.env.REACT_APP_BACKEND_SOURCE}/exercices`
+            )
+            .then(({data}) => {
+              dispatch({ type: SET_EXERCICES_LIST_ITEMS, payload: data });
+              dispatch({ type: SET_EXERCICES_LIST_IS_LOADING, payload: false });
+              dispatch({ type: SET_EXERCICES_LIST_META, payload: [] });
+              dispatch({ type: SET_EXERCICES_LIST_LINKS, payload: [] });
+              dispatch({ type: SET_EXERCICES_LIST_MESSAGE, payload: "Liste des livres" });
+            })
+            .catch((err) => {
+              dispatch({ type: SET_EXERCICES_LIST_IS_LOADING, payload: false });
+              dispatch({ type: SET_EXERCICES_LIST_ITEMS, payload: [] });
+              dispatch({ type: SET_EXERCICES_LIST_MESSAGE, payload: err.message });
+            });
+       
+    })
 
-    return axios
-      .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/exercices`
-      )
-      .then(({data}) => {
-        dispatch({ type: SET_EXERCICES_LIST_ITEMS, payload: data });
-        dispatch({ type: SET_EXERCICES_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_EXERCICES_LIST_META, payload: [] });
-        dispatch({ type: SET_EXERCICES_LIST_LINKS, payload: [] });
-        dispatch({ type: SET_EXERCICES_LIST_MESSAGE, payload: "Liste des livres" });
-      })
-      .catch((err) => {
-        dispatch({ type: SET_EXERCICES_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_EXERCICES_LIST_ITEMS, payload: [] });
-        dispatch({ type: SET_EXERCICES_LIST_MESSAGE, payload: err.message });
-      });
   };
+   
 };
 
 export const getExercice = (id) => {

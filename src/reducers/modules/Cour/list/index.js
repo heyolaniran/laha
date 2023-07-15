@@ -12,33 +12,34 @@ export const relationCours = "_expand=subject&_expand=classroom&_embed=sous_titr
 export const getCours = (pagination = false) => {
   return (dispatch) => {
     dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: true });
-
-    return axios
-      .get(
-        `${process.env.REACT_APP_BACKEND_SOURCE}/cours${
-          pagination ? "/" : "?"+relationCours
-        }`
-      )
-      .then(({data}) => {
-        dispatch({ type: SET_COURS_LIST_ITEMS, payload: data });
-        dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_COURS_LIST_META, payload: [] });
-        dispatch({ type: SET_COURS_LIST_LINKS, payload: [] });
-        dispatch({ type: SET_COURS_LIST_MESSAGE, payload: "Liste des livres" });
-      })
-      .catch((err) => {
-        dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: false });
-        dispatch({ type: SET_COURS_LIST_ITEMS, payload: [] });
-        dispatch({ type: SET_COURS_LIST_MESSAGE, payload: err.message });
-      });
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+          return axios
+          .get(
+            `${process.env.REACT_APP_BACKEND_SOURCE}/cours`
+          )
+          .then(({data}) => {
+            dispatch({ type: SET_COURS_LIST_ITEMS, payload: data });
+            dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: false });
+            dispatch({ type: SET_COURS_LIST_META, payload: [] });
+            dispatch({ type: SET_COURS_LIST_LINKS, payload: [] });
+            dispatch({ type: SET_COURS_LIST_MESSAGE, payload: "Liste des livres" });
+          })
+          .catch((err) => {
+            dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: false });
+            dispatch({ type: SET_COURS_LIST_ITEMS, payload: [] });
+            dispatch({ type: SET_COURS_LIST_MESSAGE, payload: err.message });
+          });
+   
+    })
+   
   };
 };
 
 export const getCour = (id) => {
   return (dispatch) => {
     dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: true });
-
-    return axios
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
+       return axios
       .get(`${process.env.REACT_APP_BACKEND_SOURCE}/cours/${id}?${relationCours}`)
       .then(({data}) => {
         dispatch({ type: SET_COURS_LIST_ITEMS, payload: data });
@@ -53,14 +54,16 @@ export const getCour = (id) => {
         dispatch({ type: SET_COURS_LIST_ITEMS, payload: [] });
         dispatch({ type: SET_COURS_LIST_MESSAGE, payload: err.message });
       });
+    })
+   
   };
 };
 
 export const getCourFiltre =(params)=>{
   return (dispatch) => {
     dispatch({ type: SET_COURS_LIST_IS_LOADING, payload: true });
-
-    return axios
+    return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => { 
+      return axios
       .get(
         `${process.env.REACT_APP_BACKEND_SOURCE}/cours`
       )
@@ -82,6 +85,8 @@ export const getCourFiltre =(params)=>{
         dispatch({ type: SET_COURS_LIST_ITEMS, payload: [] });
         dispatch({ type: SET_COURS_LIST_MESSAGE, payload: err.message });
       });
+    })
+    
   };
 }
 
