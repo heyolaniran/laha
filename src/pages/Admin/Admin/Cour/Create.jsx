@@ -77,16 +77,16 @@ const CreateCourAdmin = () => {
                       <div className="col-12">
                         <form  onSubmit={handleSubmit}>
                         <div className="row my-2">
-                        <div className="col-12">
-                            <label htmlFor="subject">Matiere</label>
-                        <select name="" id="subject" className="form-control" required value={courForm.subjectId} onChange={(e)=>setCourForm({...courForm,subjectId:e.target.value})}>
-                            <option value="" disabled selected>Il s'agit de quelle matiere</option>
-                            {subjectReduce.items.map((matiere)=>{
-                                return <option value={matiere.id} className="s">{matiere.name}</option>
-                            })}
-                        </select>
+                            <div className="col-12">
+                                <label htmlFor="subject">Matiere</label>
+                                <select name="" id="subject" className="form-control" required value={courForm.subjectId} onChange={(e)=>setCourForm({...courForm,subjectId:e.target.value})}>
+                                    <option value="" disabled selected>Il s'agit de quelle matiere</option>
+                                    {subjectReduce.items.map((matiere)=>{
+                                        return <option value={matiere.id} className="s">{matiere.name}</option>
+                                    })}
+                                </select>
+                            </div>
                         </div>
-                    </div>
                     <div className="row my-2">
                         <div className="col-12">
                             <label htmlFor="classroom">Classe</label>
