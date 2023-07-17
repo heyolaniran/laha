@@ -35,9 +35,9 @@ const Tarifications = () => {
                         <div className="row my-2">
                             <div className="col-12">
                                 <label htmlFor="pack">Pack à choisir</label>
-                                <select name="" id="pack" className="form-control" required  onChange={(e)=>setItems({...item,pack:e.target.value})}>
+                                <select name="" id="pack" className="form-control" required  onChange={(e)=>setItems({...item,montant:e.target.value})}>
                                     {packs.map((pack)=>{
-                                        return <option value={pack.id} className="s">{pack.name + "-" + pack.amount}</option>
+                                        return <option value={pack.montant} className="s">{pack.name + "-" + pack.amount + " XOF"}</option>
                                     })}
                                 </select>
                             </div>
