@@ -9,9 +9,10 @@ const Tarifications = () => {
     const navigate = useNavigate() ; 
     const handlePack = () => {
         axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`)
-        .then((response) =>{})
-        .then((data) => { 
-            setPacks(data) ; 
+        .then((response) =>{
+        axios.get(`${process.env.REACT_APP_BACKEND_SOURCE}/admin/payments`).then((data) => {
+            setPacks(data.data)
+        })
         })
     }
 
@@ -37,7 +38,7 @@ const Tarifications = () => {
                                 <label htmlFor="pack">Pack à choisir</label>
                                 <select name="" id="pack" className="form-control" required  onChange={(e)=>setItems({...item,montant:e.target.value})}>
                                     {packs.map((pack)=>{
-                                        return <option value={pack.montant} className="s">{pack.name + "-" + pack.amount + " XOF"}</option>
+                                        return <option value={pack.montant} className="s">{pack.pack + "-" + pack.montant + " XOF"}</option>
                                     })}
                                 </select>
                             </div>
