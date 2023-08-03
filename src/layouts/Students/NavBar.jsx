@@ -8,11 +8,11 @@ const NavBar = () => {
             <div className="row align-items-center">
                 <div className="col-lg-12">
                     <nav className="navbar navbar-expand-xl navbar-light">
-                        {/* <a className="navbar-brand" href="index.html"> <img src="template/etrain-master/img/logo.png" alt="logo" /> </a> */}
+                        {/* <a className="navbar-brand" href="index.html"> <img src="template/etrain-master/img/favicon.png" alt="logo" /> </a> */}
                         <Link className="navbar-brand" to="/">
                             <div className="d-flex" style={{alignItems:"center"}}>
                                 <img src="/template/etrain-master/img/favicon.png" alt=""  style={{width:"100px",height:"50px",objectFit:"cover",}}/>
-                                <span className="d-none d-lg-block" style={{fontWeight:"800",fontSize:"22px",color:"#bb8f47"}}>LAHACADEMIA</span>
+                                <span className="d-none d-lg-block" style={{fontWeight:"800",fontSize:"22px",color:"#1E90FF"}}>EDUTECH</span>
                             </div>
                         </Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"

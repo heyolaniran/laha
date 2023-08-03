@@ -36,8 +36,8 @@ const LayoutAdmin = ({children,actif = "tb",}) => {
               <span className="app-brand-logo demo">
                 <img src="/template/etrain-master/img/favicon.png" width="50px" alt="" />
               </span>
-              <span className=" demo fw-bolder ms-2" style={{color:"#bb8f47"}}>
-                LAHACADEMIA <span style={{fontSize:"10px",fontWeight:"bold"}}>Admin</span>
+              <span className=" demo fw-bolder ms-2" style={{color:"#1E90FF"}}>
+                EDUTECH <span style={{fontSize:"10px",fontWeight:"bold"}}>Admin</span>
               </span>
             </Link>
 

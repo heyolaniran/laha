@@ -65,7 +65,7 @@ const Layouts = () => {
                         
                         target="_blank"
                         className="footer-text fw-bolder"
-                        >LAHACADEMIA,</a>2023
+                        >EDUTECH,</a>2023
                       </div>
                       
                       <Link  to={"/logout"} className="btn btn-sm btn-outline-danger"

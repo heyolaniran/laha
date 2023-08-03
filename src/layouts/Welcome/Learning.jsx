@@ -13,7 +13,7 @@ const Learning = () => {
             <div className="col-md-5 col-lg-5">
                 <div className="learning_member_text">
                     <h5>A propos de nous</h5>
-                    <h2>Pourquoi LAHACADEMIA est la meilleure?</h2>
+                    <h2>Pourquoi EDUTECH est la meilleure?</h2>
                     <p>
                     Notre plateforme de cours en ligne offre un accès illimité à des cours de qualité,
                     des exercices et des livres en ligne pour vous aider à comprendre les leçons.

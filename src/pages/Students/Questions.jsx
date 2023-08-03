@@ -66,7 +66,7 @@ const Questions = () => {
                           <div className="single_special_cource card px-4 py-5">
                               <img src="/template/etrain-master/img/quiz.svg" className="special_img" alt="" />
                               <div className="special_cource_text" >
-                                  <Link to={"/questions/"+livre.id} className=" mb-5" ><b style={{color:"#bb8f47"}} className="mb-2">{livre.by}</b> </Link>
+                                  <Link to={"/questions/"+livre.id} className=" mb-5" ><b style={{color:"#1E90FF"}} className="mb-2">{livre.by}</b> </Link>
                                   <Link to={"/questions/"+livre.id} className=" mb-5 " ><i  className="mb-2 ml-1">~   {livre.type}</i> </Link>
                                   <Link to={"/questions/"+livre.id}><h3>{livre.titre}</h3></Link>
                                   <p className='mt-3'>{livre.resumer}</p>

@@ -44,7 +44,7 @@ const Footer = () => {
                         <div className="contact_info">
                             <p><span> Adresse :</span> <b>Bénin,</b>Cotonou,Kouhounou </p>
                             <p><span> Téléphone :</span> +229 60 00 00 00</p>
-                            <p><span> Email : </span>info@lahacademia.com </p>
+                            <p><span> Email : </span>info@EDUTECH.com </p>
                         </div>
                     </div>
                 </div>

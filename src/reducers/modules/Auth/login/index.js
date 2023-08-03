@@ -17,7 +17,7 @@ export const login = (item) => {
           localStorage.setItem('laha_token',data.data.token)
           dispatch({ type: SET_AUTH_TOKEN, payload: data.data.token });
           dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
-        dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur LAHACADEMIA..." });
+        dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur EDUTECH..." });
         dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
         dispatch({ type: SET_AUTH_IS_AUTH, payload: true });
         } else { 
@@ -35,7 +35,7 @@ export const initAuth = (data) => {
 
       dispatch({ type: SET_AUTH_TOKEN, payload: data.token });
       dispatch({ type: SET_AUTH_IS_LOADING, payload: false });
-      dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur LAHACADEMIA..." });
+      dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur EDUTECH..." });
       dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
       dispatch({ type: SET_AUTH_IS_AUTH, payload: true });
 

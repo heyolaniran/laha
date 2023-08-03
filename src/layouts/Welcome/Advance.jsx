@@ -8,7 +8,7 @@ const Advance = () => {
             <div className="col-md-6 col-lg-6">
                 <div className="learning_member_text">
                     <h5>Avec Nous</h5>
-                    {/* <h2>Apprendre est plus facile avec LAHACADEMIA</h2> */}
+                    {/* <h2>Apprendre est plus facile avec EDUTECH</h2> */}
                     {/* <p>Nous mettons à votre dispositions touts ce qu'il faut pour apprendre plus facilement et dans les bonnes conditions,<br /> Vous pouviez avoir acces à  nos:</p> */}
                     <div className="row">
                         <div className="col-sm-6 col-md-12 col-lg-6">

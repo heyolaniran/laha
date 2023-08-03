@@ -163,7 +163,7 @@ const Books = () => {
                           <div className="single_special_cource card px-4 py-5">
                               <img src="/template/etrain-master/img/books (2).svg" className="special_img" alt="" />
                               <div className="special_cource_text" >
-                                  <Link to={"/livres/"+livre.id} className=" mb-5" ><b style={{color:"#bb8f47"}} className="mb-2">{livre.auteur}</b> </Link>
+                                  <Link to={"/livres/"+livre.id} className=" mb-5" ><b style={{color:"#1E90FF"}} className="mb-2">{livre.auteur}</b> </Link>
                                   <Link to={"/livres/"+livre.id} className=" mb-5 " ><i  className="mb-2 ml-1">~   {livre.type}</i> </Link>
                                   <Link to={"/livres/"+livre.id}><h3>{livre.titre}</h3></Link>
                                   <p className='mt-3'>{livre.resumer}</p>

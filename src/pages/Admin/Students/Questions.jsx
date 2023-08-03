@@ -142,7 +142,7 @@ const search =(param)=>{
 
     <LayoutStudent actif="qr">
       <div className="" onClick={(e)=>search([{name:"userId",value:auth.user.id}])} style={{position:"fixed",bottom:"130px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#c6c6ddb0',cursor:"pointer"}}><i className='bx bx-chat' style={{fontSize:"25px",color:"#7777ff"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Mes questions</b></div>
-      <div className="" onClick={(e)=>{setModale(true);setUpdate(false);setFormQuiz({})}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#bb8f47"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Poser une question</b></div>
+      <div className="" onClick={(e)=>{setModale(true);setUpdate(false);setFormQuiz({})}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#1E90FF"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Poser une question</b></div>
     <div className="container-xxl flex-grow-1 container-p-y">
      <div className="row">
       <div className="col-12">
@@ -153,9 +153,9 @@ const search =(param)=>{
      </div>
      <h5 className='text-muted' onClick={(e)=>setShowFiltre(!showFiltre)}>Filtre <i className='bx bx-filter' style={{fontSize:"25px"}}></i></h5>
      {showFiltre && (<div className="row">
-     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{quizs.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
+     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{quizs.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
      {subjectReduce.items && (subjectReduce.items.map((sub)=>{
-     return <div className='cursor-pointer' onClick={(e)=>search([{name:"category",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{filterList(quizs,'category',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
+     return <div className='cursor-pointer' onClick={(e)=>search([{name:"category",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{filterList(quizs,'category',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
      }))}
 
      </div>)}

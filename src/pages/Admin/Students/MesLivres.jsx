@@ -103,7 +103,7 @@ const MesLivres = () => {
         ></i>
         <b style={{ paddingLeft: "10px", paddingRight: "5px" }}>Mes favoris</b>
       </div>
-      {/* <div className="" onClick={(e)=>{setModale(true);setUpdate(false);setFormQuiz({})}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#bb8f47"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Poser une question</b></div> */}
+      {/* <div className="" onClick={(e)=>{setModale(true);setUpdate(false);setFormQuiz({})}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#1E90FF"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Poser une question</b></div> */}
       <div className="container-xxl flex-grow-1 container-p-y">
         <h4 className="fw-bold py-3 mb-4">
           <span className="text-muted fw-light">Dashboard /</span> Livres
@@ -114,9 +114,9 @@ const MesLivres = () => {
         {showFiltre && (<div className="">
         <span style={{fontWeight:800}}>Matieres</span>
         {showFiltre && (<div className="row">
-     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{books.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
+     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{books.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
      {subjectReduce.items && (subjectReduce.items.map((sub)=>{
-     return <div className='cursor-pointer' onClick={(e)=>search([{name:"subjectId",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{filterList(books,'subjectId',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
+     return <div className='cursor-pointer' onClick={(e)=>search([{name:"subjectId",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{filterList(books,'subjectId',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
      }))}
     
      </div>)}
@@ -128,9 +128,9 @@ const MesLivres = () => {
         {showFiltre && (<div className="row">
         <hr />
 
-     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{books.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
+     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{books.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
      {typeReduce.items && (typeReduce.items.map((sub)=>{
-     return <div className='cursor-pointer' onClick={(e)=>search([{name:"typeId",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#bb8f475c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#bb8f47"}}>{filterList(books,'typeId',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
+     return <div className='cursor-pointer' onClick={(e)=>search([{name:"typeId",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{filterList(books,'typeId',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
      }))}
         <hr />
     

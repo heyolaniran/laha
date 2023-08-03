@@ -34,7 +34,7 @@ const Login = ()=>{
                   <div className="app-brand justify-content-center">
                     <a  className="app-brand-link gap-2">
                       <img src="/template/etrain-master/img/favicon.png" alt="" style={{width:"100px",height:"100px",objectFit:"contain"}}/>
-                      <span className=" " style={{color:"#bb8f47 ",fontSize:"22px",fontWeight:"800"}}>LAHACADEMIA</span>
+                      <span className=" " style={{color:"#1E90FF ",fontSize:"22px",fontWeight:"800"}}>EDUTECH</span>
                     </a>
                   </div>
                   <h4 className="mb-2">Bienvenu(e) 👋</h4>
@@ -80,7 +80,7 @@ const Login = ()=>{
                     </div>
                     
                     <div className="mb-3">
-                      <button className="btn btn-primary d-grid w-100" style={{background:"#bb8f47",border:"none"}} type="submit">Connexion</button>
+                      <button className="btn btn-primary d-grid w-100" style={{background:"#1E90FF",border:"none"}} type="submit">Connexion</button>
                     </div></>):(<div className="mb-3 offset-5 mt-4">
                       <div className="spinner-grow text-primary"></div>
                     </div>)}

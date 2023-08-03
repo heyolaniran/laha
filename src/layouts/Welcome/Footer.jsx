@@ -12,7 +12,7 @@ const Footer = () => {
                             <Link className="navbar-brand" to="/">
                             <div className="d-flex" style={{alignItems:"center"}}>
                                 <img src="template/etrain-master/img/favicon.png" alt=""  style={{width:"100px",height:"50px",objectFit:"cover",}}/>
-                                <span className="d-none d-lg-block" style={{fontWeight:"800",fontSize:"22px",color:"#bb8f47"}}>LAHACADEMIA</span>
+                                <span className="d-none d-lg-block" style={{fontWeight:"800",fontSize:"22px",color:"#1E90FF"}}>EDUTECH</span>
                             </div>
                         </Link>
                        
@@ -52,7 +52,7 @@ const Footer = () => {
                         <div className="contact_info">
                             <p><span> Adresse :</span> <b>Bénin,</b>Cotonou,Kouhounou </p>
                             <p><span> Téléphone :</span> +229 60 00 00 00</p>
-                            <p><span> Email : </span>info@lahacademia.com </p>
+                            <p><span> Email : </span>info@EDUTECH.com </p>
                         </div>
                     </div>
                 </div>

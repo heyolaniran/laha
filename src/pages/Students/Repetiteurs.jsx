@@ -28,7 +28,7 @@ const Repetiteurs = () => {
         myAlert.fire({
             title: ' '+rep.matiere,
             html: html,
-            confirmButtonColor:"#bb8f47",
+            confirmButtonColor:"#1E90FF",
             confirmButtonText:"Participer",
            
           }).then((result) => {
@@ -83,7 +83,7 @@ const Repetiteurs = () => {
         myAlert.fire({
             title: ' Demande cour en ligne',
             html: html,
-            confirmButtonColor:"#bb8f47",
+            confirmButtonColor:"#1E90FF",
             confirmButtonText:"Envoyer",
             cancelButtonText:"Annuler"
            
@@ -141,7 +141,7 @@ const Repetiteurs = () => {
         myAlert.fire({
             title: ' Demande cour à domicile',
             html: html,
-            confirmButtonColor:"#bb8f47",
+            confirmButtonColor:"#1E90FF",
             confirmButtonText:"Envoyer",
             cancelButtonText:"Annuler"
            

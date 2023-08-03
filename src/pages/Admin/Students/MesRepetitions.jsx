@@ -342,7 +342,7 @@ const MesRepetitions = () => {
       </div>)}
       
     <LayoutStudent actif="rept">
-      <div className="" onClick={(e)=>{setModale(true);setIsCreated(true);setFormRept({})}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#bb8f47"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Enregistrer une demande</b></div>
+      <div className="" onClick={(e)=>{setModale(true);setIsCreated(true);setFormRept({})}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#1E90FF"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Enregistrer une demande</b></div>
       <div className=""  style={{position:"fixed",bottom:"120px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#c6c6ddb0',cursor:"pointer"}}>
         <input type="text" value={searchItem} onChange={(e)=>setSearchItem(e.target.value)} placeholder="Entrer le code " style={{backgroundColor:"transparent",border:"none"}} id="searchInput" />
         {searchItem.length == 0 ?<i className='bx bx-search' style={{fontSize:"25px",color:"#7777ff"}}></i>

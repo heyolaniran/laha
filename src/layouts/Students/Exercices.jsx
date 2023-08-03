@@ -104,7 +104,7 @@ const ExercicesCard = () => {
                     <div className="single_special_cource card px-4 py-5">
                         <img src="/template/etrain-master/img/teache (3).svg" className="special_img" alt="" />
                         <div className="special_cource_text" >
-                            <Link to={"/exercices/1"} className=" mb-5" ><b style={{color:"#bb8f47"}} className="mb-2">{exercice.matiere}</b> </Link>
+                            <Link to={"/exercices/1"} className=" mb-5" ><b style={{color:"#1E90FF"}} className="mb-2">{exercice.matiere}</b> </Link>
                             <Link to={"/exercices/1"}><h3>{exercice.titre}</h3></Link>
                             <p clas>{exercice.resumer}</p>
                             
