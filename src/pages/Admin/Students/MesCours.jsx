@@ -45,9 +45,9 @@ const MesCours = () => {
         </h4>
         <h5 className='text-muted' onClick={(e)=>setShowFiltre(!showFiltre)}>Filtre <i className='bx bx-filter' style={{fontSize:"25px"}}></i></h5>
             {showFiltre && (<div className="row my-3">
-     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{allCours.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
+     <div onClick={(e)=>search([])} className='cursor-pointer' style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#32CD325c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",backgroundColor:"white",borderRadius:"15px",fontWeight:"bolder",color:"#32CD32"}}>{allCours.length}</div><span style={{margin:"0px 5px"}}>Tout</span> </div>
      {/*subjectReduce.items && (subjectReduce.items.map((sub)=>{
-     return <div className='cursor-pointer' onClick={(e)=>search([{name:"subjectId",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#1E90FF5c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#1E90FF"}}>{filterList(allCours,'subjectId',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
+     return <div className='cursor-pointer' onClick={(e)=>search([{name:"subjectId",value:sub.id}])} style={{padding:"4px 15px 4px 2px",margin:"5px 10px",backgroundColor:"#32CD325c",width:"max-content",borderRadius:"20px",display:"flex",alignItems:"center"}}> <div className="" style={{padding:"4px 14px",borderRadius:"15px",fontWeight:"bolder",color:"#32CD32"}}>{filterList(allCours,'subjectId',sub.id)?.length}</div><span style={{margin:"0px 5px"}}>{sub.name}</span> </div>
      })) */}
 
      </div>)}

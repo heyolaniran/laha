@@ -133,7 +133,7 @@ const FirstStep = (item,fan) => {
                     </div>
                     <button
                       className="btn d-grid w-100"
-                      style={{ background: "#1E90FF", color: "white" }}
+                      style={{ background: "#32CD32", color: "white" }}
                     >
                       S'Inscrire
                     </button>

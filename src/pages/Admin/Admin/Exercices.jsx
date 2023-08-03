@@ -132,7 +132,7 @@ const ExercicesAdmin = () => {
       </div>)}
     <LayoutAdmin actif="exercices">
         
-      <div className="" onClick={(e)=>{navigate('/admin/exercices/create')}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#1E90FF"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Enregistrer un livre</b></div>
+      <div className="" onClick={(e)=>{navigate('/admin/exercices/create')}} style={{position:"fixed",bottom:"70px",right:"20px",padding:"10px",borderRadius:"60px",zIndex:5,backgroundColor:'#ebddc8b8',cursor:"pointer"}}><i className='bx bx-plus' style={{fontSize:"25px",color:"#32CD32"}}></i> <b style={{paddingLeft:"10px",paddingRight:"5px"}}>Enregistrer un livre</b></div>
       <div className="container-xxl flex-grow-1 container-p-y">
         <h4 className="fw-bold py-3 mb-4">
           <span className="text-muted fw-light">Dashboard /</span> Exercices

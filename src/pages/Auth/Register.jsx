@@ -96,12 +96,12 @@ const Register = () => {
                   <span
                     className=""
                     style={{
-                      color: "#1E90FF ",
+                      color: "#32CD32 ",
                       fontSize: "22px",
                       fontWeight: "800",
                     }}
                   >
-                    EDUTECH
+                    GESCO
                   </span>
                 </Link>
               </div>
@@ -110,7 +110,7 @@ const Register = () => {
                   <span
                     className=""
                     style={{
-                      color: "#1E90FF ",
+                      color: "#32CD32 ",
                       fontSize: "12px",
                       fontWeight: "200",
                     }}
@@ -266,7 +266,7 @@ const Register = () => {
                     </div>
                     <button
                       className="btn d-grid w-100"
-                      style={{ background: "#1E90FF", color: "white" }}
+                      style={{ background: "#32CD32", color: "white" }}
                     >
                       S'Inscrire
                     </button>
@@ -360,7 +360,7 @@ const Register = () => {
 
                     <button
                       className="btn d-grid w-100"
-                      style={{ background: "#1E90FF", color: "white" }}
+                      style={{ background: "#32CD32", color: "white" }}
                     >
                       Continuer
                     </button>
@@ -429,7 +429,7 @@ const Register = () => {
 
                     <button
                       className="btn d-grid w-100"
-                      style={{ background: "#1E90FF", color: "white" }}
+                      style={{ background: "#32CD32", color: "white" }}
                     >
                       Enregistrer
                     </button>

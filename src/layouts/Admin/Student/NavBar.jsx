@@ -12,7 +12,7 @@ const NavBarStudent = () => {
                   <img src="/template/etrain-master/img/favicon.png" alt="" />
                 </span>
                 <span className="app-brand-text demo menu-text fw-bolder ms-2">
-                  EDUTECHl
+                  GESCOl
                 </span>
               </a>
 

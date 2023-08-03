@@ -18,8 +18,8 @@ const Dash = () => {
                 <span className="app-brand-logo demo">
                   <img src="/template/etrain-master/img/favicon.png" width="50px" alt="" />
                 </span>
-                <span className=" demo fw-bolder ms-2" style={{color:"#1E90FF"}}>
-                  EDUTECH
+                <span className=" demo fw-bolder ms-2" style={{color:"#32CD32"}}>
+                  GESCO
                 </span>
               </a>
 

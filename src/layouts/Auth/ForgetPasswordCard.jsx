@@ -25,7 +25,7 @@ const ForgetPasswordCard = () => {
                     autofocus
                   />
                 </div>
-                <button className="btn  d-grid w-100" style={{background:"#1E90FF",color:"white"}}>Restaurer mot de passe</button>
+                <button className="btn  d-grid w-100" style={{background:"#32CD32",color:"white"}}>Restaurer mot de passe</button>
               </form>
               <div className="text-center">
                 <Link to="/login" href="auth-login-basic.html" className="d-flex align-items-center justify-content-center">

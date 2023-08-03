@@ -12,7 +12,7 @@ const NavBar = () => {
                         <Link className="navbar-brand" to="/">
                             <div className="d-flex" style={{alignItems:"center"}}>
                                 <img src="/template/etrain-master/img/favicon.png" alt=""  style={{width:"100px",height:"50px",objectFit:"cover",}}/>
-                                <span className="d-none d-lg-block" style={{fontWeight:"800",fontSize:"22px",color:"#1E90FF"}}>EDUTECH</span>
+                                <span className="d-none d-lg-block" style={{fontWeight:"800",fontSize:"22px",color:"#32CD32"}}>GESCO</span>
                             </div>
                         </Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"

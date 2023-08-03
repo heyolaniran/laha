@@ -18,7 +18,7 @@ const Registersecond = () => {
                 <div className="app-brand justify-content-center">
                 <Link to="/register" href="index.html" className=" gap-2">
                 <img src="template/etrain-master/img/favicon.png" alt="" style={{width:"100px",height:"100px",objectFit:"contain"}}/>
-                    <span className="" style={{color:"#1E90FF ",fontSize:"22px",fontWeight:"800"}}>EDUTECH</span>
+                    <span className="" style={{color:"#32CD32 ",fontSize:"22px",fontWeight:"800"}}>GESCO</span>
                     
                 </Link>
                 </div>
@@ -80,7 +80,7 @@ const Registersecond = () => {
                 
 
                 
-                <button className="btn d-grid w-100" style={{background:"#1E90FF",color:"white"}}>Enregistrer</button>
+                <button className="btn d-grid w-100" style={{background:"#32CD32",color:"white"}}>Enregistrer</button>
                 </form>
 
                 <p className="text-center">

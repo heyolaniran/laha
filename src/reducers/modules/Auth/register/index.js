@@ -12,7 +12,7 @@ export const register = (item) => {
     return axios.get(`${process.env.REACT_APP_SANCTUM}/sanctum/csrf-cookie`).then((response) => {
       return axios.post(`${process.env.REACT_APP_BACKEND_SOURCE}/auth/register`, item).then((data) => { 
         if(data.status){
-           dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur EDUTECH,Connectez-vous pour continuer..." });
+           dispatch({ type: SET_AUTH_MESSAGE, payload: "Bienvenu sur GESCO,Connectez-vous pour continuer..." });
            dispatch({ type: SET_AUTH_MESSAGE_TYPE, payload: "success" });
 
         }else{
